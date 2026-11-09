@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Activity, ShieldCheck, Clock, MapPin } from "lucide-react";
 import { ClinicalScreener } from "@/components/screener/ClinicalScreener";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Biomechanical Symptom Screener & Clinical Triage | Physiogenix Islamabad",
@@ -15,43 +16,41 @@ export const metadata: Metadata = {
 
 export default function AssessmentPage() {
   return (
-    <div className="flex flex-col w-full bg-[#fbfdfc]">
+    <div className="flex flex-col w-full bg-[#f9faf8] text-left">
+      <Breadcrumbs
+        items={[{ name: "Symptom Screener", href: "/assessment", current: true }]}
+      />
+
       {/* Header */}
-      <section className="pt-12 pb-16 md:pt-16 md:pb-24 bg-gradient-to-b from-[#f5faf8] to-[#fbfdfc] border-b border-[#e2ede8]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e6f6f1] text-[#0b8061] text-xs font-semibold uppercase tracking-wider">
-            <Activity className="w-3.5 h-3.5" />
-            <span>Interactive Clinical Tool</span>
-          </div>
-
-          <h1 className="editorial-serif text-4xl sm:text-5xl lg:text-6xl text-[#0d211e]">
-            Biomechanical Symptom Screener
+      <section className="pt-8 pb-20 sm:pb-28 border-b border-[#e0e6e1]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 space-y-6">
+          <span className="text-[10px] uppercase tracking-editorial-widest text-[#758c87] block">
+            Clinical Triage // Self-Check Tool
+          </span>
+          <h1 className="font-editorial text-5xl sm:text-6xl lg:text-[72px] leading-[0.98] font-light text-[#0d1a17]">
+            Biomechanical Screener
           </h1>
-
-          <p className="text-base sm:text-lg text-[#4a635f] font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="font-editorial text-2xl sm:text-3xl text-[#475c57] leading-relaxed font-light">
             Answer 3 targeted questions about your symptoms to identify the relevant clinical rehabilitation department and typical session milestone under our 12-session cap.
           </p>
 
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs text-[#284440]">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#e2ede8]">
-              <Clock className="w-3.5 h-3.5 text-[#10a880]" />
-              <span>2-Minute Interactive Self-Check</span>
-            </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-[#e2ede8]">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#10a880]" />
-              <span>Evidence-Based Triage Matrix</span>
-            </div>
+          <div className="flex flex-wrap items-center gap-6 pt-2 text-xs font-mono text-[#758c87]">
+            <span>2-MINUTE SELF-CHECK</span>
+            <span>•</span>
+            <span>EVIDENCE-BASED TRIAGE</span>
+            <span>•</span>
+            <span>12-SESSION CEILING</span>
           </div>
         </div>
       </section>
 
-      {/* Tool Section */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Screener Component */}
+      <section className="py-24 sm:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
           <ClinicalScreener />
 
-          {/* Educational Note */}
-          <div className="mt-12 max-w-3xl mx-auto p-6 rounded-2xl bg-[#fafcfb] border border-[#dce8e3] text-xs text-[#526e68] leading-relaxed text-center">
+          {/* Educational Disclaimer */}
+          <div className="mt-12 max-w-3xl mx-auto p-6 bg-white border border-[#e0e6e1] text-xs text-[#5c736e] leading-relaxed text-center font-light">
             <strong>Clinical Disclaimer:</strong> This digital screener provides preliminary educational triage and does not replace a hands-on physical, orthopedic, and neurological examination conducted in-person by Dr. Faiza Yousef at 2nd Floor, Chaudhary Plaza, Sector F-7 Markaz, Islamabad.
           </div>
         </div>

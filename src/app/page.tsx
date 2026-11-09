@@ -1,30 +1,39 @@
 import React from "react";
-import { Hero } from "@/components/home/Hero";
-import { TrustIndicators } from "@/components/home/TrustIndicators";
-import { DrFaizaBioSection } from "@/components/home/DrFaizaBioSection";
-import { ServicesSection } from "@/components/home/ServicesSection";
-import { PhilosophySection } from "@/components/home/PhilosophySection";
-import { PatientJourneySection } from "@/components/home/PatientJourneySection";
-import { ConditionsMatrixSection } from "@/components/home/ConditionsMatrixSection";
-import { ClinicEnvironmentSection } from "@/components/home/ClinicEnvironmentSection";
-import { TestimonialsSection } from "@/components/home/TestimonialsSection";
-import { FaqSection } from "@/components/home/FaqSection";
-import { LocationSection } from "@/components/home/LocationSection";
+import { EditorialHero } from "@/components/home/EditorialHero";
+import { BrandIntroduction } from "@/components/home/BrandIntroduction";
+import { DoctorSection } from "@/components/home/DoctorSection";
+import { ServicesIndex } from "@/components/home/ServicesIndex";
+import { ClinicExperience } from "@/components/home/ClinicExperience";
+import { ApproachSection } from "@/components/home/ApproachSection";
+import { TestimonialsEditorial } from "@/components/home/TestimonialsEditorial";
+import { ContactBookingSection } from "@/components/home/ContactBookingSection";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col w-full">
-      <Hero />
-      <TrustIndicators />
-      <DrFaizaBioSection />
-      <ServicesSection />
-      <PhilosophySection />
-      <PatientJourneySection />
-      <ConditionsMatrixSection />
-      <ClinicEnvironmentSection />
-      <TestimonialsSection />
-      <FaqSection />
-      <LocationSection />
+    <div className="flex flex-col w-full bg-[#f9faf8]">
+      {/* Section 2: Cinematic Hero */}
+      <EditorialHero />
+
+      {/* Section 3: Brand Introduction */}
+      <BrandIntroduction />
+
+      {/* Section 4: Dr. Faiza */}
+      <DoctorSection />
+
+      {/* Section 5: Services */}
+      <ServicesIndex />
+
+      {/* Section 6: Clinic Experience */}
+      <ClinicExperience />
+
+      {/* Section 7: Approach */}
+      <ApproachSection />
+
+      {/* Section 8: Testimonials */}
+      <TestimonialsEditorial />
+
+      {/* Section 9: Contact */}
+      <ContactBookingSection />
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ShieldCheck, Lock } from "lucide-react";
+import { Lock } from "lucide-react";
 import { clinicData } from "@/data/clinicData";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Privacy & Healthcare Data Confidentiality | Physiogenix",
@@ -15,28 +16,31 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="flex flex-col w-full bg-[#fbfdfc]">
-      <section className="pt-12 pb-16 md:pt-16 md:pb-24 bg-gradient-to-b from-[#f5faf8] to-[#fbfdfc] border-b border-[#e2ede8]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e6f6f1] text-[#0c7a5d] text-xs font-semibold uppercase tracking-wider">
-            <Lock className="w-3.5 h-3.5" />
-            <span>Healthcare Privacy</span>
-          </div>
+    <div className="flex flex-col w-full bg-[#f9faf8] text-left">
+      <Breadcrumbs
+        items={[{ name: "Privacy Policy", href: "/privacy", current: true }]}
+      />
 
-          <h1 className="editorial-serif text-4xl sm:text-5xl lg:text-6xl text-[#0d211e]">
-            Patient Privacy &amp; Data Policy
+      {/* Header */}
+      <section className="pt-8 pb-20 sm:pb-28 border-b border-[#e0e6e1]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 space-y-6">
+          <span className="text-[10px] uppercase tracking-editorial-widest text-[#758c87] block">
+            Legal &amp; Clinical Confidentiality
+          </span>
+          <h1 className="font-editorial text-5xl sm:text-6xl lg:text-[72px] leading-[0.98] font-light text-[#0d1a17]">
+            Patient Privacy Policy
           </h1>
-
-          <p className="text-base text-[#4a635f] font-light leading-relaxed max-w-2xl mx-auto">
-            Our commitment to strict clinical confidentiality, data protection, and ethical healthcare communication at Physiogenix Islamabad.
+          <p className="font-editorial text-2xl sm:text-3xl text-[#475c57] leading-relaxed font-light">
+            Our commitment to medical confidentiality, patient data protection, and ethical healthcare communication at Physiogenix Islamabad.
           </p>
         </div>
       </section>
 
-      <section className="py-20 lg:py-28">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-left text-sm sm:text-base text-[#445e59] leading-relaxed font-light">
+      {/* Policy Clauses */}
+      <section className="py-24 sm:py-32">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-10 space-y-12 text-sm sm:text-base text-[#475c57] leading-relaxed font-light">
           <div className="space-y-3">
-            <h2 className="editorial-serif text-2xl text-[#102421]">
+            <h2 className="font-editorial text-3xl text-[#0d1a17]">
               1. Patient Clinical Confidentiality
             </h2>
             <p>
@@ -45,8 +49,8 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="editorial-serif text-2xl text-[#102421]">
-              2. Appointment &amp; Contact Details
+            <h2 className="font-editorial text-3xl text-[#0d1a17]">
+              2. Appointment &amp; Intake Details
             </h2>
             <p>
               When you submit an appointment request through our website or connect via WhatsApp, we collect only necessary scheduling data: your full name, phone number, requested service, and a brief description of your symptoms. This data is exclusively utilized by Dr. Faiza Yousef and her clinical coordination staff to manage clinical calendars.
@@ -57,7 +61,7 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="editorial-serif text-2xl text-[#102421]">
+            <h2 className="font-editorial text-3xl text-[#0d1a17]">
               3. WhatsApp Communication Notice
             </h2>
             <p>
@@ -66,39 +70,17 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="editorial-serif text-2xl text-[#102421]">
-              4. Photography &amp; Case Documentation
+            <h2 className="font-editorial text-3xl text-[#0d1a17]">
+              4. Contact Regarding Your Data
             </h2>
-            <p>
-              On social platforms such as Instagram (@faiza_fitnessphysio and @_physiogenix_), educational movement clips or clinical outcomes are shared only with explicit written informed consent from the patient, ensuring complete anonymity where requested.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <h2 className="editorial-serif text-2xl text-[#102421]">
-              5. Contact Us Regarding Your Data
-            </h2>
-            <p>
-              If you have inquiries regarding your clinical records or wish to update your scheduling information, please reach out to our clinic:
-            </p>
-            <div className="p-5 rounded-2xl bg-[#fafdfc] border border-[#e2ede8] text-xs text-[#2e4743] space-y-1">
-              <div><strong>Clinic:</strong> Physiogenix by Dr. Faiza Yousef</div>
-              <div><strong>Address:</strong> 2nd Floor, Chaudhary Plaza, Bhittai Road, Sector F-7 Markaz, Islamabad</div>
-              <div><strong>Phone:</strong> {clinicData.contact.primaryPhone}</div>
+            <div className="p-6 bg-white border border-[#e0e6e1] text-xs space-y-1 font-mono text-[#0d1a17]">
+              <div>CLINIC: PHYSIOGENIX BY DR. FAIZA YOUSEF</div>
+              <div>ADDRESS: 2ND FLOOR, CHAUDHARY PLAZA, BHITTAI ROAD, F-7 MARKAZ, ISLAMABAD</div>
+              <div>PRIMARY DISPATCH: {clinicData.contact.primaryPhone}</div>
             </div>
-          </div>
-
-          <div className="pt-6 border-t border-[#e2ede8]">
-            <Link
-              href="/"
-              className="text-xs font-semibold text-[#10a880] hover:underline"
-            >
-              ← Back to Physiogenix Home
-            </Link>
           </div>
         </div>
       </section>
     </div>
   );
 }
-

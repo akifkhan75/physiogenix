@@ -369,3 +369,4 @@ export const ClinicalScreener: React.FC<{ compact?: boolean }> = ({ compact = fa
     </div>
   );
 };
+

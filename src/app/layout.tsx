@@ -1,29 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Newsreader } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import { MinimalNav } from "@/components/layout/MinimalNav";
+import { MinimalFooter } from "@/components/layout/MinimalFooter";
 import { StickyMobileAppointmentBar } from "@/components/layout/StickyMobileAppointmentBar";
 import { FloatingWhatsAppButton } from "@/components/ui/FloatingWhatsAppButton";
 import { clinicData } from "@/data/clinicData";
 
-const sans = Plus_Jakarta_Sans({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const serif = Newsreader({
-  subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-cormorant",
   display: "swap",
   style: ["normal", "italic"],
   weight: ["300", "400", "500", "600"],
 });
 
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
 export const viewport: Viewport = {
-  themeColor: "#10a880",
+  themeColor: "#0f5948",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -32,54 +32,46 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://physiogenix.pk"),
   title: {
-    default: "Physiogenix | Premium Assessment-Led Physiotherapy in Islamabad",
+    default: "Physiogenix | Movement Rehabilitation & Manual Physiotherapy Islamabad",
     template: "%s | Physiogenix by Dr. Faiza",
   },
   description:
-    "Physiogenix is Islamabad's leading assessment-led physiotherapy clinic led by Dr. Faiza Yousef (DPT, COMPT, CDNP, CDDC). Specialized in Orthopedic Manual Therapy, Spinal Care, Sciatica, Frozen Shoulder, and Dry Needling.",
+    "Physiogenix is an assessment-led musculoskeletal physiotherapy practice in Sector F-7 Markaz, Islamabad led by Dr. Faiza Yousef (DPT, COMPT, CDNP, CDDC). Specialized in Orthopedic Manual Therapy, Spinal Decompression, Sciatica, and Movement Rehabilitation.",
   keywords: [
-    "Physiotherapy Islamabad",
-    "Dr Faiza Yousef",
     "Physiogenix",
-    "Best Physiotherapist in Islamabad F-7",
-    "Orthopedic Manual Therapy",
-    "Back Pain Islamabad",
-    "Neck Pain Relief",
-    "Sciatica Rehabilitation",
+    "Dr Faiza Yousef",
+    "Physiotherapy Islamabad",
+    "Orthopedic Manual Therapy Islamabad",
+    "Back Pain Clinic F-7 Islamabad",
+    "Sciatica Rehabilitation Islamabad",
+    "Doctor of Physical Therapy STMU",
     "Dry Needling Islamabad",
-    "Frozen Shoulder Treatment",
-    "Posture Correction Islamabad",
+    "Frozen Shoulder Rehabilitation",
   ],
   authors: [{ name: "Dr. Faiza Yousef, DPT, COMPT", url: "https://www.instagram.com/faiza_fitnessphysio/" }],
   creator: "Physiogenix",
-  publisher: "Physiogenix Clinic",
-  formatDetection: {
-    email: true,
-    address: true,
-    telephone: true,
-  },
+  publisher: "Physiogenix",
   openGraph: {
     type: "website",
     locale: "en_PK",
     url: "https://physiogenix.pk",
     siteName: "Physiogenix",
-    title: "Physiogenix | Assessment-Led Physiotherapy by Dr. Faiza Yousef",
+    title: "Physiogenix | Assessment-Led Physiotherapy in Islamabad",
     description:
-      "Root-cause recovery, orthopedic manual therapy, and posture restoration. Based in F-7 Markaz, Islamabad.",
+      "Root-cause musculoskeletal care, orthopedic manual therapy, and movement restoration by Dr. Faiza Yousef.",
     images: [
       {
         url: "/images/physiogenix-logo.png",
         width: 600,
         height: 600,
-        alt: "Physiogenix Logo & Identity Mark",
+        alt: "Physiogenix Emblem",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Physiogenix | Assessment-Led Physiotherapy in Islamabad",
-    description:
-      "Orthopedic manual therapy, spinal rehabilitation, and posture restoration led by Dr. Faiza Yousef.",
+    description: "Orthopedic manual therapy and spinal rehabilitation led by Dr. Faiza Yousef.",
     images: ["/images/physiogenix-logo.png"],
   },
   alternates: {
@@ -98,12 +90,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable} scroll-smooth`}>
+    <html lang="en" className={`${cormorant.variable} ${manrope.variable} scroll-smooth`}>
       <head>
         <link rel="icon" href="/images/physiogenix-logo.png" />
       </head>
-      <body className="font-sans-body min-h-screen flex flex-col bg-[#fbfdfc] text-[#102421] selection:bg-[#10a880] selection:text-white">
-        {/* Healthcare Structured Data */}
+      <body className="font-sans-editorial min-h-screen flex flex-col bg-[#f9faf8] text-[#0d1a17] selection:bg-[#0f5948] selection:text-[#f9faf8]">
+        {/* Schema.org Healthcare Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -119,7 +111,7 @@ export default function RootLayout({
               priceRange: "$$",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "2nd Floor, Chaudhary Plaza, Bhittai Road (Next to PSO Pump, above Medicsi Hospital)",
+                streetAddress: "2nd Floor, Chaudhary Plaza, Bhittai Road (Above Medicsi Hospital, beside PSO Petrol Pump)",
                 addressLocality: "Islamabad",
                 addressRegion: "Islamabad Capital Territory",
                 postalCode: "44000",
@@ -147,7 +139,7 @@ export default function RootLayout({
               founder: {
                 "@type": "Person",
                 name: "Dr. Faiza Yousef",
-                jobTitle: "Doctor of Physical Therapy & Lead Clinical Director",
+                jobTitle: "Founder & Lead Physiotherapist",
                 alumniOf: "Shifa Tameer-e-Millat University (STMU)",
                 sameAs: [
                   "https://www.instagram.com/faiza_fitnessphysio/",
@@ -162,9 +154,9 @@ export default function RootLayout({
           }}
         />
 
-        <Navbar />
+        <MinimalNav />
         <main className="flex-1">{children}</main>
-        <Footer />
+        <MinimalFooter />
         <StickyMobileAppointmentBar />
         <FloatingWhatsAppButton />
       </body>

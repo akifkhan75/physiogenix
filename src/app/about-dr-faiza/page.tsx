@@ -1,15 +1,16 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Award, ShieldCheck, CheckCircle2, ArrowRight, BookOpen, HeartPulse, GraduationCap, Clock } from "lucide-react";
-import { InstagramIcon } from "@/components/ui/Icons";
-import { DrFaizaPortrait } from "@/components/ui/DrFaizaPortrait";
+import Image from "next/image";
+import { ArrowUpRight, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { clinicData } from "@/data/clinicData";
+import { InstagramIcon } from "@/components/ui/Icons";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "About Dr. Faiza Yousef, DPT, COMPT | Lead Physiotherapist Islamabad",
   description:
-    "Learn about Dr. Faiza Yousef, Doctor of Physical Therapy (STMU) with 8+ years experience. Certified in Orthopedic Manual Therapy (COMPT) and Dry Needling (CDNP). Founder of Physiogenix in F-7 Islamabad.",
+    "Learn about Dr. Faiza Yousef, Doctor of Physical Therapy (STMU) with 8+ years clinical experience in Sector F-7 Islamabad. Certified in Orthopedic Manual Therapy (COMPT) and Dry Needling (CDNP).",
   alternates: {
     canonical: "https://physiogenix.pk/about-dr-faiza",
   },
@@ -19,191 +20,151 @@ export default function AboutDrFaizaPage() {
   const { leadPractitioner } = clinicData;
 
   return (
-    <div className="flex flex-col w-full bg-[#fbfdfc]">
-      {/* Schema.org Person / Physician */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Physician",
-            name: "Dr. Faiza Yousef",
-            honorificPrefix: "Dr.",
-            jobTitle: "Founder & Lead Physical Therapist",
-            worksFor: {
-              "@type": "Physiotherapy",
-              name: "Physiogenix",
-              url: "https://physiogenix.pk",
-            },
-            alumniOf: {
-              "@type": "EducationalOrganization",
-              name: "Shifa Tameer-e-Millat University (STMU)",
-            },
-            knowsAbout: [
-              "Orthopedic Manual Therapy",
-              "Dry Needling",
-              "Dynamic Cupping",
-              "Spinal Disc Rehabilitation",
-              "Sciatica",
-              "Posture Restoration",
-            ],
-            sameAs: [
-              "https://www.instagram.com/faiza_fitnessphysio/",
-              "https://www.instagram.com/_physiogenix_/",
-            ],
-          }),
-        }}
+    <div className="flex flex-col w-full bg-[#f9faf8] text-left">
+      <Breadcrumbs
+        items={[{ name: "Dr. Faiza Yousef", href: "/about-dr-faiza", current: true }]}
       />
 
-      {/* Hero Section */}
-      <section className="pt-12 pb-16 md:pt-16 md:pb-24 bg-gradient-to-b from-[#f5faf8] to-[#fbfdfc] border-b border-[#e2ede8]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      {/* Hero Header */}
+      <section className="pt-8 pb-20 sm:pb-28 border-b border-[#e0e6e1]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Narrative (7 cols) */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e6f6f1] text-[#0c7a5d] text-xs font-semibold uppercase tracking-wider">
-                <GraduationCap className="w-3.5 h-3.5" />
-                <span>Clinical Leadership</span>
+            <div className="lg:col-span-7 space-y-8">
+              <div className="space-y-3">
+                <span className="text-[10px] uppercase tracking-editorial-widest text-[#758c87] block">
+                  Practitioner Profile // STMU Alumna
+                </span>
+                <h1 className="font-editorial text-5xl sm:text-6xl lg:text-[72px] leading-[0.98] font-light text-[#0d1a17]">
+                  Dr. Faiza Yousef <br />
+                  <span className="text-2xl sm:text-3xl font-sans-editorial font-normal text-[#0f5948] block mt-2">
+                    DPT • COMPT • CDNP • CDDC
+                  </span>
+                </h1>
               </div>
 
-              <h1 className="editorial-serif text-4xl sm:text-5xl lg:text-6xl text-[#0d211e] leading-[1.1]">
-                Dr. Faiza Yousef <br />
-                <span className="text-xl sm:text-2xl font-sans-body font-normal text-[#10a880] block mt-2">
-                  DPT • COMPT • CDNP • CDDC
-                </span>
-              </h1>
-
-              <p className="text-base sm:text-lg text-[#4a635f] font-light leading-relaxed">
-                Doctor of Physical Therapy (STMU) with over 8 years of hands-on clinical experience in Islamabad. Pioneer of assessment-led, manual physical rehabilitation and founder of Physiogenix.
+              <p className="font-editorial text-2xl sm:text-3xl text-[#475c57] leading-relaxed font-light">
+                Founder and Clinical Director of Physiogenix. Championing hands-before-machines assessment, orthopedic joint mobilization, and patient movement autonomy in Islamabad.
               </p>
 
-              {/* Quick credential facts */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs">
-                <div className="p-3 rounded-xl bg-white border border-[#e2ede8]">
-                  <span className="text-[10px] uppercase text-[#7a918d] font-semibold block">Alma Mater</span>
-                  <span className="font-semibold text-[#102421]">STMU Islamabad</span>
+              {/* Quick Metrics Bar */}
+              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-[#e0e6e1] text-xs">
+                <div>
+                  <span className="font-editorial text-2xl text-[#0d1a17] block">STMU</span>
+                  <span className="text-[10px] uppercase tracking-editorial-widest text-[#758c87]">
+                    Doctor of Physical Therapy
+                  </span>
                 </div>
-                <div className="p-3 rounded-xl bg-white border border-[#e2ede8]">
-                  <span className="text-[10px] uppercase text-[#7a918d] font-semibold block">Experience</span>
-                  <span className="font-semibold text-[#102421]">8+ Years Clinical</span>
+                <div>
+                  <span className="font-editorial text-2xl text-[#0f5948] block">8+ Years</span>
+                  <span className="text-[10px] uppercase tracking-editorial-widest text-[#758c87]">
+                    Clinical Practice
+                  </span>
                 </div>
-                <div className="p-3 rounded-xl bg-white border border-[#e2ede8]">
-                  <span className="text-[10px] uppercase text-[#7a918d] font-semibold block">Session Model</span>
-                  <span className="font-semibold text-[#10a880]">Max 12 Sessions</span>
+                <div>
+                  <span className="font-editorial text-2xl text-[#0d1a17] block">Max 12</span>
+                  <span className="text-[10px] uppercase tracking-editorial-widest text-[#758c87]">
+                    Session Cap Standard
+                  </span>
                 </div>
               </div>
 
-              {/* CTA */}
-              <div className="pt-2 flex flex-wrap items-center gap-3">
+              {/* Action */}
+              <div className="pt-2 flex flex-wrap items-center gap-4">
                 <Link
                   href="/contact"
-                  className="px-6 py-3 rounded-xl bg-[#10a880] hover:bg-[#0c8263] text-white text-xs font-semibold tracking-wider uppercase transition-colors"
+                  className="px-6 py-3.5 bg-[#0f5948] hover:bg-[#0b4336] text-[#f9faf8] text-xs font-semibold uppercase tracking-editorial-wide transition-colors"
                 >
-                  Book Assessment with Dr. Faiza
+                  Schedule Assessment with Dr. Faiza
                 </Link>
+
                 <a
                   href={leadPractitioner.instagramPersonal}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-[#f2f8f5] hover:bg-[#e3f2ec] text-[#0c7a5d] text-xs font-semibold transition-colors border border-[#d2eae0]"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 border border-[#e0e6e1] hover:border-[#0f5948] text-[#0d1a17] text-xs font-semibold uppercase tracking-editorial-wide transition-colors"
                 >
                   <InstagramIcon className="w-3.5 h-3.5" />
-                  <span>Follow @faiza_fitnessphysio</span>
+                  <span>@faiza_fitnessphysio</span>
+                  <ArrowUpRight className="w-3 h-3" />
                 </a>
               </div>
             </div>
 
-            {/* Right Doctor Portrait Card (5 cols) */}
+            {/* Right Portrait Plate (5 cols) */}
             <div className="lg:col-span-5">
-              <DrFaizaPortrait />
+              <div className="relative aspect-4/5 w-full bg-white border border-[#e0e6e1] p-8 flex flex-col justify-between">
+                <div className="flex items-center justify-between text-[10px] uppercase tracking-editorial-widest text-[#758c87]">
+                  <span>STMU Graduate</span>
+                  <span>F-7 Markaz</span>
+                </div>
+
+                <div className="my-auto text-center space-y-4">
+                  <div className="relative w-44 h-44 mx-auto rounded-full p-1 bg-white border border-[#0f5948]/30 shadow-md">
+                    <div className="relative w-full h-full rounded-full overflow-hidden">
+                      <Image
+                        src="/dr-faiza/dr-faiza-avatar.jpg"
+                        alt="Dr. Faiza Yousef"
+                        fill
+                        className="object-cover"
+                        priority
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="font-editorial text-2xl text-[#0d1a17] font-medium">Dr. Faiza Yousef</h3>
+                    <p className="text-xs text-[#0f5948] font-semibold uppercase tracking-editorial-wide">
+                      Clinical Director
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-[#e0e6e1] text-[10px] text-[#758c87] text-center">
+                  Authentic verified Instagram clinical profile photo
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* In-Depth Biographical & Clinical Philosophy Section */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          {/* Section 1: Clinical Origin & Training */}
-          <div className="space-y-4 text-left">
-            <h2 className="editorial-serif text-3xl sm:text-4xl text-[#0d211e]">
-              Education &amp; Clinical Formative Years
+      {/* Narrative Section */}
+      <section className="py-24 sm:py-32">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 space-y-16">
+          {/* Education & Credentials */}
+          <div className="space-y-6">
+            <h2 className="font-editorial text-3xl sm:text-4xl text-[#0d1a17]">
+              Academic Foundation &amp; Post-Graduate Training
             </h2>
-            <div className="space-y-4 text-sm sm:text-base text-[#4a635f] leading-relaxed font-light">
+            <div className="space-y-4 text-sm sm:text-base text-[#475c57] font-light leading-relaxed">
               <p>
-                Dr. Faiza Yousef earned her <strong className="font-semibold text-[#102421]">Doctor of Physical Therapy (DPT)</strong> from <strong className="font-semibold text-[#102421]">Shifa Tameer-e-Millat University (STMU)</strong> in Islamabad, one of Pakistan&apos;s premier healthcare academic institutions.
+                Dr. Faiza Yousef completed her <strong className="font-medium text-[#0d1a17]">Doctor of Physical Therapy (DPT)</strong> degree at <strong className="font-medium text-[#0d1a17]">Shifa Tameer-e-Millat University (STMU)</strong> in Islamabad, one of Pakistan&apos;s leading medical faculties.
               </p>
               <p>
-                Recognizing that conventional physical therapy often defaults to passive machine modalities—such as generalized heating pads and ultrasound therapy—Dr. Faiza pursued rigorous post-graduate certifications in orthopedic manual therapy and advanced dry needling. Her certifications include:
+                To provide root-cause mechanical care rather than relying on standard passive machines, she pursued advanced post-graduate certifications:
               </p>
 
-              {/* Certifications List */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+              {/* Certifications Table */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
                 {leadPractitioner.certifications.map((c) => (
-                  <div key={c.abbr} className="p-4 rounded-2xl bg-[#f8fbf9] border border-[#e2ede8]">
-                    <div className="inline-flex items-center gap-1 text-[#10a880] font-semibold text-xs mb-1">
-                      <ShieldCheck className="w-3.5 h-3.5" />
-                      <span>{c.abbr}</span>
-                    </div>
-                    <h4 className="text-sm font-semibold text-[#102421]">{c.title}</h4>
-                    <p className="text-xs text-[#6d847f] mt-1.5 leading-relaxed">{c.focus}</p>
+                  <div key={c.abbr} className="p-5 bg-white border border-[#e0e6e1] space-y-1">
+                    <span className="font-mono text-xs text-[#0f5948] font-semibold block">{c.abbr}</span>
+                    <h4 className="font-semibold text-sm text-[#0d1a17]">{c.title}</h4>
+                    <p className="text-xs text-[#5c736e] font-light leading-relaxed pt-1">{c.focus}</p>
                   </div>
                 ))}
               </div>
-
-              <p>
-                This training equips her to perform differential arthrokinematic evaluations: distinguishing whether a patient&apos;s sciatica is caused by a lumbar disc herniation, facet joint subluxation, or piriformis muscle spasm.
-              </p>
             </div>
           </div>
 
-          {/* Section 2: Clinical Philosophy — "Hands Before Machines" */}
-          <div className="p-8 rounded-3xl bg-[#f2f8f5] border border-[#d6ebe2] space-y-4 text-left">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-[#0c7a5d] text-xs font-semibold uppercase tracking-wider">
-              <span>Core Clinical Doctrine</span>
-            </div>
-            <h3 className="editorial-serif text-2xl sm:text-3xl text-[#102421]">
-              Why &ldquo;Hands Before Machines&rdquo; Matters
-            </h3>
-            <p className="text-sm sm:text-base text-[#445e59] leading-relaxed font-light">
-              &ldquo;Machines provide sensory distraction. They do not alter joint mechanics, free entrapped nerve roots, or restore cervical lordosis. Real healing requires the clinician&apos;s hands to palpate soft tissue tension, test end-feel resistance, glide restricted facet joints, and trigger neuromuscular reset.&rdquo;
+          {/* Philosophy Statement */}
+          <div className="p-8 sm:p-10 bg-[#f2f5f1] border border-[#e0e6e1] space-y-3">
+            <span className="text-[10px] uppercase tracking-editorial-widest text-[#0f5948] font-bold block">
+              Core Clinical Doctrine
+            </span>
+            <p className="font-editorial text-2xl sm:text-3xl text-[#0d1a17] font-light leading-relaxed">
+              &ldquo;Machines provide sensory distraction. They do not alter joint arthrokinematics, free entrapped nerve roots, or restore spinal alignment. Real healing requires the clinician&apos;s hands to palpate tissue tension, test end-feel resistance, glide restricted facet joints, and trigger neuromuscular reset.&rdquo;
             </p>
-            <p className="text-xs text-[#556e69]">
-              — Dr. Faiza Yousef, Founder &amp; Clinical Director
-            </p>
-          </div>
-
-          {/* Section 3: The 12-Session Cap */}
-          <div className="space-y-4 text-left">
-            <h2 className="editorial-serif text-3xl sm:text-4xl text-[#0d211e]">
-              The Ethical 12-Session Cap Standard
-            </h2>
-            <div className="space-y-4 text-sm sm:text-base text-[#4a635f] leading-relaxed font-light">
-              <p>
-                In an industry where clinics often encourage patients to purchase indefinite packages spanning months, Dr. Faiza introduced a transparent cap: <strong className="font-semibold text-[#102421]">no treatment plan exceeds 12 sessions</strong>.
-              </p>
-              <p>
-                Most conditions—including disc bulges, frozen shoulder stages, and cervicogenic migraines—demonstrate marked improvement within 6 to 10 sessions. By setting a ceiling, patients are motivated, clinical accountability is guaranteed, and the focus remains firmly on restoring personal physical autonomy and home maintenance.
-              </p>
-            </div>
-          </div>
-
-          {/* CTA Box */}
-          <div className="p-8 rounded-3xl bg-[#102421] text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
-            <div className="space-y-1 text-center sm:text-left">
-              <h4 className="editorial-serif text-2xl font-normal">
-                Consult with Dr. Faiza in Sector F-7 Islamabad
-              </h4>
-              <p className="text-xs text-[#a4c9c1]">
-                Book your 45-minute comprehensive biomechanical assessment.
-              </p>
-            </div>
-            <Link
-              href="/contact"
-              className="px-6 py-3 rounded-xl bg-[#10a880] hover:bg-[#0c8263] text-white text-xs font-semibold uppercase tracking-wider transition-colors shrink-0"
-            >
-              Book Consultation
-            </Link>
           </div>
         </div>
       </section>

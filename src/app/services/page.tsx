@@ -1,8 +1,9 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Activity, ArrowRight, Clock, CheckCircle2, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, Clock, CheckCircle2 } from "lucide-react";
 import { clinicData } from "@/data/clinicData";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Clinical Services & Physical Therapy Treatments | Physiogenix Islamabad",
@@ -13,89 +14,78 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ServicesOverviewPage() {
+export default function ServicesPage() {
   return (
-    <div className="flex flex-col w-full bg-[#fbfdfc]">
+    <div className="flex flex-col w-full bg-[#f9faf8] text-left">
+      <Breadcrumbs
+        items={[{ name: "Clinical Departments", href: "/services", current: true }]}
+      />
+
       {/* Header */}
-      <section className="pt-12 pb-16 md:pt-16 md:pb-24 bg-gradient-to-b from-[#f5faf8] to-[#fbfdfc] border-b border-[#e2ede8]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e6f6f1] text-[#0c7a5d] text-xs font-semibold uppercase tracking-wider">
-            <Activity className="w-3.5 h-3.5" />
-            <span>Clinical Departments</span>
-          </div>
-
-          <h1 className="editorial-serif text-4xl sm:text-5xl lg:text-6xl text-[#0d211e]">
-            Specialized Physical Rehabilitation
+      <section className="pt-8 pb-20 sm:pb-28 border-b border-[#e0e6e1]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 space-y-6">
+          <span className="text-[10px] uppercase tracking-editorial-widest text-[#758c87] block">
+            Movement Restoration // 8 Specialized Departments
+          </span>
+          <h1 className="font-editorial text-5xl sm:text-6xl lg:text-[72px] leading-[0.98] font-light text-[#0d1a17]">
+            Clinical Services
           </h1>
-
-          <p className="text-base sm:text-lg text-[#4a635f] font-light leading-relaxed max-w-2xl mx-auto">
-            All treatments are art-directed and executed personally by Dr. Faiza Yousef. Root-cause biomechanics capped at 12 sessions max.
+          <p className="font-editorial text-2xl sm:text-3xl text-[#475c57] leading-relaxed font-light">
+            All protocols are evaluated and executed personally by Dr. Faiza Yousef. Root-cause biomechanics capped at 12 sessions maximum.
           </p>
         </div>
       </section>
 
-      {/* Services List Section */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {clinicData.services.map((service, idx) => (
+      {/* Departments Directory */}
+      <section className="py-24 sm:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#e0e6e1] border border-[#e0e6e1]">
+            {clinicData.services.map((svc, idx) => (
               <div
-                key={service.id}
-                className="p-8 rounded-3xl bg-white border border-[#e2ede8] shadow-sm hover:border-[#10a880]/50 hover:shadow-xl transition-all flex flex-col justify-between"
+                key={svc.id}
+                className="p-8 sm:p-12 bg-white hover:bg-[#f2f5f1]/60 transition-colors duration-300 space-y-6 flex flex-col justify-between"
               >
-                <div className="space-y-4 text-left">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-[#10a880] uppercase tracking-wider">
-                      Department 0{idx + 1}
-                    </span>
-                    {service.featuredBadge && (
-                      <span className="px-2.5 py-0.5 rounded-full bg-[#f2f8f5] border border-[#d6ebe2] text-[10px] font-semibold text-[#0c7a5d] uppercase tracking-wider">
-                        {service.featuredBadge}
-                      </span>
-                    )}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between text-xs font-mono text-[#758c87]">
+                    <span>DEPT // 0{idx + 1}</span>
+                    <span className="text-[#0f5948] font-semibold">{svc.typicalSessionCount}</span>
                   </div>
 
-                  <h2 className="editorial-serif text-2xl sm:text-3xl text-[#102421]">
-                    {service.title}
+                  <h2 className="font-editorial text-3xl sm:text-4xl text-[#0d1a17] font-light leading-snug">
+                    {svc.title}
                   </h2>
 
-                  <p className="text-xs sm:text-sm text-[#4a635f] leading-relaxed font-light">
-                    {service.shortDescription}
+                  <p className="text-xs sm:text-sm text-[#475c57] font-light leading-relaxed">
+                    {svc.shortDescription}
                   </p>
 
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#f8fbfa] border border-[#e8f1ed] text-xs text-[#536965]">
-                    <Clock className="w-3.5 h-3.5 text-[#10a880]" />
-                    <span>Typical Timeline: <strong>{service.typicalSessionCount}</strong></span>
-                  </div>
-
-                  {/* Indications preview */}
-                  <div className="pt-2 border-t border-[#f2f7f4] space-y-1.5">
-                    <span className="block text-[10px] font-semibold uppercase text-[#7a918d] tracking-wider">
-                      Primary Clinical Indications:
+                  <div className="pt-3 border-t border-[#e0e6e1] space-y-1.5 text-xs text-[#284440]">
+                    <span className="text-[10px] uppercase tracking-editorial-widest text-[#758c87] block font-semibold">
+                      Primary Indications:
                     </span>
-                    {service.clinicalIndications.slice(0, 3).map((ind, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-[#3d5752]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#10a880] shrink-0 mt-0.5" />
+                    {svc.clinicalIndications.slice(0, 3).map((ind, i) => (
+                      <div key={i} className="flex items-start gap-2 font-light">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#0f5948] shrink-0 mt-0.5" />
                         <span>{ind}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-[#f2f7f4] flex items-center justify-between">
+                <div className="pt-4 border-t border-[#e0e6e1] flex items-center justify-between">
                   <Link
-                    href={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#10a880] hover:text-[#0c8263]"
+                    href={`/services/${svc.slug}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-editorial-wide text-[#0f5948] hover:text-[#0b4336]"
                   >
-                    <span>Read Full Clinical Protocol</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>Read Full Protocol Details</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
                   </Link>
 
                   <Link
                     href="/contact"
-                    className="px-4 py-2 rounded-xl bg-[#e6f6f1] hover:bg-[#10a880] hover:text-white text-xs font-semibold text-[#0c7a5d] transition-colors"
+                    className="px-4 py-2 bg-[#f2f5f1] hover:bg-[#0f5948] hover:text-white text-[#0f5948] text-xs font-semibold uppercase tracking-editorial-wide transition-colors"
                   >
-                    Book Consultation
+                    Schedule
                   </Link>
                 </div>
               </div>
@@ -106,4 +96,3 @@ export default function ServicesOverviewPage() {
     </div>
   );
 }
-
