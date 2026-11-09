@@ -34,6 +34,9 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionData, setSubmissionData] = useState<FormValues | null>(null);
 
+  const [serverWhatsAppUrl, setServerWhatsAppUrl] = useState<string | null>(null);
+  const [appointmentId, setAppointmentId] = useState<string | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -54,15 +57,32 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
 
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
-    // Simulate server submission or prepare WhatsApp payload
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    setSubmissionData(data);
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    if (onSuccess) onSuccess();
+    try {
+      const res = await fetch("/api/appointment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+      if (result.success) {
+        setServerWhatsAppUrl(result.whatsAppUrl);
+        setAppointmentId(result.appointmentId);
+      }
+    } catch {
+      // Fallback
+    } finally {
+      setSubmissionData(data);
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      if (onSuccess) onSuccess();
+    }
   };
 
   const handleLaunchWhatsApp = () => {
+    if (serverWhatsAppUrl) {
+      window.open(serverWhatsAppUrl, "_blank");
+      return;
+    }
     if (!submissionData) return;
     const text = `*New Appointment Request - Physiogenix*\n` +
       `*Patient:* ${submissionData.fullName}\n` +
@@ -71,7 +91,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
       `*Preferred Date:* ${submissionData.preferredDate}\n` +
       `*Time Window:* ${submissionData.preferredTime}\n` +
       `*Symptoms:* ${submissionData.message}\n\n` +
-      `_Sent via Physiogenix Official Website_`;
+      `_Location: 2nd Floor, Chaudhary Plaza, Sector F-7 Markaz, Islamabad_`;
 
     window.open(`https://wa.me/923305122052?text=${encodeURIComponent(text)}`, "_blank");
   };
@@ -91,6 +111,11 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
 
         {/* Request summary box */}
         <div className="mt-6 p-4 rounded-xl bg-[#f5faf8] border border-[#dbece4] text-left text-xs space-y-1.5 text-[#3a524e]">
+          {appointmentId && (
+            <div className="text-[11px] font-semibold text-[#0c7a5d] pb-1 border-b border-[#e2ece7]">
+              Appointment Intake Ref: <span className="font-mono">{appointmentId}</span>
+            </div>
+          )}
           <div><span className="font-semibold text-[#102421]">Service:</span> {submissionData.service}</div>
           <div><span className="font-semibold text-[#102421]">Target Date:</span> {submissionData.preferredDate} ({submissionData.preferredTime})</div>
           <div><span className="font-semibold text-[#102421]">Contact Number:</span> {submissionData.phone}</div>
