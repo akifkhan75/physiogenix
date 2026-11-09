@@ -92,35 +92,33 @@ export default function AboutDrFaizaPage() {
             </div>
 
             {/* Right Portrait Plate (5 cols) */}
-            <div className="lg:col-span-5">
-              <div className="relative aspect-4/5 w-full bg-white border border-[#e0e6e1] p-8 flex flex-col justify-between">
-                <div className="flex items-center justify-between text-[10px] uppercase tracking-editorial-widest text-[#758c87]">
-                  <span>STMU Graduate</span>
-                  <span>F-7 Markaz</span>
+            <div className="lg:col-span-5 flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-md aspect-[4/5] rounded-lg overflow-hidden border border-[#E8E7E0] bg-[#FCFBF8] shadow-sm">
+                <Image
+                  src="/dr-faiza/dr-faiza-portrait-600.jpg"
+                  alt="Dr. Faiza Yousef, DPT, COMPT - Lead Physical Therapist"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 480px"
+                  className="object-cover object-center filter contrast-[1.02]"
+                  priority
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#193B2C]/85 via-transparent to-transparent pointer-events-none" />
+
+                <div className="absolute top-4 left-4 px-2.5 py-1 bg-[#FCFBF8]/90 backdrop-blur-sm rounded border border-[#E8E7E0] text-[9px] uppercase tracking-editorial-widest font-semibold text-[#193B2C]">
+                  STMU Alumna • Islamabad
                 </div>
 
-                <div className="my-auto text-center space-y-4">
-                  <div className="relative w-44 h-44 mx-auto rounded-full p-1 bg-white border border-[#0f5948]/30 shadow-md">
-                    <div className="relative w-full h-full rounded-full overflow-hidden">
-                      <Image
-                        src="/dr-faiza/dr-faiza-avatar.jpg"
-                        alt="Dr. Faiza Yousef"
-                        fill
-                        className="object-cover"
-                        priority
-                      />
-                    </div>
+                <div className="absolute bottom-0 inset-x-0 p-6 text-left text-[#FCFBF8]">
+                  <span className="text-[10px] uppercase tracking-editorial-widest text-[#AAB7A5] block">
+                    Verified Lead Clinician
+                  </span>
+                  <div className="font-editorial text-2xl font-light text-[#FCFBF8] mt-0.5">
+                    Dr. Faiza Yousef
                   </div>
-                  <div className="space-y-1">
-                    <h3 className="font-editorial text-2xl text-[#0d1a17] font-medium">Dr. Faiza Yousef</h3>
-                    <p className="text-xs text-[#0f5948] font-semibold uppercase tracking-editorial-wide">
-                      Clinical Director
-                    </p>
+                  <div className="text-xs text-[#E8E7E0] font-light mt-1">
+                    DPT • COMPT • CDNP • CDDC
                   </div>
-                </div>
-
-                <div className="pt-3 border-t border-[#e0e6e1] text-[10px] text-[#758c87] text-center">
-                  Authentic verified Instagram clinical profile photo
                 </div>
               </div>
             </div>

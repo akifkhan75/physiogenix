@@ -2,28 +2,33 @@
 
 @layer base {
   :root {
-    --brand-emerald: #0f5948;
-    --brand-emerald-vibrant: #10a880;
-    --brand-emerald-light: #20c997;
-    --brand-emerald-subtle: #edf5f2;
-    
+    /* Primary Reference Mockup Palette */
+    --brand-ivory: #F7F6F1;
+    --brand-offwhite: #FCFBF8;
+    --brand-forest: #193B2C;
+    --brand-forest-dark: #122B20;
+    --brand-forest-light: #22523D;
+    --brand-sage: #AAB7A5;
+    --brand-sage-light: #DFE5DC;
+    --brand-sage-subtle: #F0F4EF;
+    --brand-warm-grey: #E8E7E0;
+    --brand-warm-grey-light: #F2F1EC;
+    --brand-charcoal: #252A25;
+    --brand-charcoal-muted: #555E55;
+    --brand-charcoal-subtle: #7F8B7E;
+
+    /* Original Logo Color Harmonies */
+    --brand-emerald: #0F5948;
+    --brand-emerald-vibrant: #10A880;
     --brand-slate: #365759;
-    --brand-slate-dark: #1f3334;
 
-    --brand-obsidian: #081411;
-    --brand-obsidian-card: #0c1f1b;
-    --brand-obsidian-soft: #122924;
-
-    --brand-linen: #f9faf8;
-    --brand-linen-soft: #f2f5f1;
-    --brand-linen-muted: #e7ebe5;
-
-    --brand-hairline: #e0e6e1;
-    --brand-hairline-dark: rgba(255, 255, 255, 0.12);
-
-    --brand-ink: #0d1a17;
-    --brand-ink-muted: #475c57;
-    --brand-ink-subtle: #758c87;
+    /* Base mappings */
+    --brand-linen: var(--brand-offwhite);
+    --brand-linen-soft: var(--brand-ivory);
+    --brand-hairline: var(--brand-warm-grey);
+    --brand-ink: var(--brand-charcoal);
+    --brand-ink-muted: var(--brand-charcoal-muted);
+    --brand-ink-subtle: var(--brand-charcoal-subtle);
   }
 
   html {
@@ -31,20 +36,20 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--brand-linen);
-    color: var(--brand-ink);
+    background-color: var(--brand-offwhite);
+    color: var(--brand-charcoal);
   }
 
   body {
-    background-color: var(--brand-linen);
-    color: var(--brand-ink);
+    background-color: var(--brand-offwhite);
+    color: var(--brand-charcoal);
     overflow-x: hidden;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   ::selection {
-    background-color: #0f5948;
-    color: #f9faf8;
+    background-color: var(--brand-forest);
+    color: var(--brand-offwhite);
   }
 }
 
@@ -56,7 +61,7 @@
 
 .font-sans-editorial {
   font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.012em;
 }
 
 .tracking-editorial-widest {
@@ -67,29 +72,35 @@
   letter-spacing: 0.08em;
 }
 
+/* Fluid Hero Display Typography (56px-76px) */
+.hero-headline-fluid {
+  font-size: clamp(3rem, 5.5vw + 0.5rem, 4.75rem);
+  line-height: 1.04;
+}
+
 /* Hairline dividers & boundaries */
 .border-hairline {
-  border-color: var(--brand-hairline);
+  border-color: var(--brand-warm-grey);
 }
 
 .border-hairline-dark {
-  border-color: var(--brand-hairline-dark);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 /* Minimalist navigation blur */
 .nav-minimal {
-  background: rgba(249, 250, 248, 0.92);
+  background: rgba(252, 251, 248, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--brand-hairline);
+  border-bottom: 1px solid var(--brand-warm-grey);
 }
 
 .nav-minimal-scrolled {
-  background: rgba(249, 250, 248, 0.98);
+  background: rgba(252, 251, 248, 0.98);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid var(--brand-hairline);
-  box-shadow: 0 4px 30px -4px rgba(8, 20, 17, 0.03);
+  border-bottom: 1px solid var(--brand-warm-grey);
+  box-shadow: 0 4px 20px -2px rgba(37, 42, 37, 0.04);
 }
 
 /* Hide scrollbar utility */

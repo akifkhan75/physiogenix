@@ -133,18 +133,18 @@ export const ClinicalScreener: React.FC<{ compact?: boolean }> = ({ compact = fa
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto rounded-3xl bg-white border border-[#dbe7e2] shadow-xl overflow-hidden text-left">
+    <div className="w-full max-w-4xl mx-auto rounded-xl bg-[#FCFBF8] border border-[#E8E7E0] shadow-sm overflow-hidden text-left">
       {/* Top Header Bar */}
-      <div className="px-6 sm:px-8 py-5 bg-[#f6faf8] border-b border-[#e2ede8] flex items-center justify-between">
+      <div className="px-6 sm:px-8 py-5 bg-[#F7F6F1] border-b border-[#E8E7E0] flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-[#e6f6f1] text-[#10a880] flex items-center justify-center">
+          <div className="w-9 h-9 rounded bg-[#FCFBF8] border border-[#E8E7E0] text-[#193B2C] flex items-center justify-center">
             <Activity className="w-5 h-5" />
           </div>
           <div>
-            <div className="text-[10px] uppercase font-bold tracking-wider text-[#10a880]">
+            <div className="text-[10px] uppercase font-semibold tracking-editorial-widest text-[#193B2C]">
               Biomechanical Self-Assessment Tool
             </div>
-            <h3 className="editorial-serif text-lg sm:text-xl font-medium text-[#0e211e]">
+            <h3 className="font-editorial text-lg sm:text-xl font-light text-[#252A25]">
               Find Your Clinical Recovery Pathway
             </h3>
           </div>
@@ -162,17 +162,17 @@ export const ClinicalScreener: React.FC<{ compact?: boolean }> = ({ compact = fa
       </div>
 
       {/* Progress Steps */}
-      <div className="grid grid-cols-4 border-b border-[#edf3f0] text-center text-[11px] font-semibold">
-        <div className={`py-2 border-b-2 transition-colors ${step >= 1 ? "border-[#10a880] text-[#0e211e]" : "border-transparent text-[#97aba6]"}`}>
+      <div className="grid grid-cols-4 border-b border-[#E8E7E0] text-center text-[11px] font-semibold">
+        <div className={`py-2 border-b-2 transition-colors ${step >= 1 ? "border-[#193B2C] text-[#252A25]" : "border-transparent text-[#7F8B7E]"}`}>
           1. Location
         </div>
-        <div className={`py-2 border-b-2 transition-colors ${step >= 2 ? "border-[#10a880] text-[#0e211e]" : "border-transparent text-[#97aba6]"}`}>
+        <div className={`py-2 border-b-2 transition-colors ${step >= 2 ? "border-[#193B2C] text-[#252A25]" : "border-transparent text-[#7F8B7E]"}`}>
           2. Sensation
         </div>
-        <div className={`py-2 border-b-2 transition-colors ${step >= 3 ? "border-[#10a880] text-[#0e211e]" : "border-transparent text-[#97aba6]"}`}>
+        <div className={`py-2 border-b-2 transition-colors ${step >= 3 ? "border-[#193B2C] text-[#252A25]" : "border-transparent text-[#7F8B7E]"}`}>
           3. Chronicity
         </div>
-        <div className={`py-2 border-b-2 transition-colors ${step >= 4 ? "border-[#10a880] text-[#0e211e]" : "border-transparent text-[#97aba6]"}`}>
+        <div className={`py-2 border-b-2 transition-colors ${step >= 4 ? "border-[#193B2C] text-[#252A25]" : "border-transparent text-[#7F8B7E]"}`}>
           4. Triage
         </div>
       </div>
@@ -199,17 +199,17 @@ export const ClinicalScreener: React.FC<{ compact?: boolean }> = ({ compact = fa
                     setSelectedRegion(opt.id);
                     setStep(2);
                   }}
-                  className="p-4 rounded-2xl border border-[#dce8e3] bg-[#fafcfb] hover:border-[#10a880] hover:bg-white text-left transition-all group flex flex-col justify-between cursor-pointer"
+                  className="p-4 rounded-xl border border-[#E8E7E0] bg-[#FCFBF8] hover:border-[#193B2C] hover:bg-[#F7F6F1] text-left transition-all group flex flex-col justify-between cursor-pointer shadow-sm"
                 >
                   <div>
-                    <div className="text-sm font-semibold text-[#0e211e] group-hover:text-[#10a880] transition-colors">
+                    <div className="text-sm font-semibold text-[#252A25] group-hover:text-[#193B2C] transition-colors">
                       {opt.label}
                     </div>
-                    <div className="text-xs text-[#5a7570] mt-1 leading-relaxed font-light">
+                    <div className="text-xs text-[#555E55] mt-1 leading-relaxed font-light">
                       {opt.sublabel}
                     </div>
                   </div>
-                  <div className="mt-3 flex items-center justify-end text-[11px] font-semibold text-[#10a880] opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="mt-3 flex items-center justify-end text-[11px] font-semibold text-[#193B2C] opacity-0 group-hover:opacity-100 transition-opacity">
                     <span>Select →</span>
                   </div>
                 </button>
@@ -238,12 +238,12 @@ export const ClinicalScreener: React.FC<{ compact?: boolean }> = ({ compact = fa
                     setSelectedQuality(opt.id);
                     setStep(3);
                   }}
-                  className="p-4 rounded-2xl border border-[#dce8e3] bg-[#fafcfb] hover:border-[#10a880] hover:bg-white text-left transition-all group cursor-pointer"
+                  className="p-4 rounded-xl border border-[#E8E7E0] bg-[#FCFBF8] hover:border-[#193B2C] hover:bg-[#F7F6F1] text-left transition-all group cursor-pointer shadow-sm"
                 >
-                  <div className="text-sm font-semibold text-[#0e211e] group-hover:text-[#10a880] transition-colors">
+                  <div className="text-sm font-semibold text-[#252A25] group-hover:text-[#193B2C] transition-colors">
                     {opt.label}
                   </div>
-                  <div className="text-xs text-[#5a7570] mt-1 leading-relaxed font-light">
+                  <div className="text-xs text-[#555E55] mt-1 leading-relaxed font-light">
                     {opt.sublabel}
                   </div>
                 </button>
@@ -279,12 +279,12 @@ export const ClinicalScreener: React.FC<{ compact?: boolean }> = ({ compact = fa
                     setSelectedDuration(opt.id);
                     setStep(4);
                   }}
-                  className="p-4 rounded-2xl border border-[#dce8e3] bg-[#fafcfb] hover:border-[#10a880] hover:bg-white text-left transition-all group cursor-pointer"
+                  className="p-4 rounded-xl border border-[#E8E7E0] bg-[#FCFBF8] hover:border-[#193B2C] hover:bg-[#F7F6F1] text-left transition-all group cursor-pointer shadow-sm"
                 >
-                  <div className="text-sm font-semibold text-[#0e211e] group-hover:text-[#10a880] transition-colors">
+                  <div className="text-sm font-semibold text-[#252A25] group-hover:text-[#193B2C] transition-colors">
                     {opt.label}
                   </div>
-                  <div className="text-xs text-[#5a7570] mt-1 leading-relaxed font-light">
+                  <div className="text-xs text-[#555E55] mt-1 leading-relaxed font-light">
                     {opt.sublabel}
                   </div>
                 </button>
@@ -303,30 +303,30 @@ export const ClinicalScreener: React.FC<{ compact?: boolean }> = ({ compact = fa
         {/* Step 4: Triage & Recommendation */}
         {step === 4 && (
           <div className="space-y-6 animate-in fade-in zoom-in-98 duration-300">
-            <div className="p-6 rounded-2xl bg-[#e6f6f1] border border-[#bce2d4] space-y-3">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-[#0b8061] text-[11px] font-semibold uppercase tracking-wider">
+            <div className="p-6 sm:p-8 rounded-xl bg-[#F0F4EF] border border-[#DFE5DC] space-y-4">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-[#FCFBF8] border border-[#DFE5DC] text-[#193B2C] text-[10px] font-semibold uppercase tracking-editorial-widest">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span>Preliminary Clinical Triage Match</span>
               </div>
 
-              <h4 className="editorial-serif text-2xl sm:text-3xl text-[#0e211e]">
+              <h4 className="font-editorial text-2xl sm:text-3xl text-[#252A25] font-light">
                 Recommended Department: <br />
-                <span className="text-[#10a880] font-sans-body font-semibold text-xl sm:text-2xl">
+                <span className="text-[#193B2C] font-normal text-xl sm:text-2xl block mt-1">
                   {getMatchedService()}
                 </span>
               </h4>
 
-              <p className="text-xs sm:text-sm text-[#3b5952] leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#555E55] leading-relaxed font-light">
                 Based on your symptom inputs ({regionOptions.find((r) => r.id === selectedRegion)?.label}, {durationOptions.find((d) => d.id === selectedDuration)?.label}), Dr. Faiza&apos;s assessment will evaluate articular joint play, segmental neural tension, and soft-tissue mobility to isolate the mechanical trigger.
               </p>
 
-              <div className="pt-2 border-t border-[#c6e6db] grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#2b4c44]">
+              <div className="pt-3 border-t border-[#DFE5DC] grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#252A25]">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#10a880]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#193B2C]" />
                   <span>Capped at 12 sessions max</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#10a880]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#193B2C]" />
                   <span>1-on-1 supervision in F-7 Markaz</span>
                 </div>
               </div>
@@ -336,23 +336,23 @@ export const ClinicalScreener: React.FC<{ compact?: boolean }> = ({ compact = fa
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <button
                 onClick={handleOpenBooking}
-                className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-[#10a880] hover:bg-[#0b8061] text-white font-medium text-sm transition-all shadow-md shadow-[#10a880]/20 cursor-pointer"
+                className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg bg-[#193B2C] hover:bg-[#122B20] text-[#FCFBF8] text-xs font-medium uppercase tracking-editorial-widest transition-all shadow-sm cursor-pointer"
               >
                 <Calendar className="w-4 h-4" />
-                <span>Book Assessment for this Condition</span>
+                <span>Book Assessment</span>
               </button>
 
               <button
                 onClick={handleFastTrackWhatsApp}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl bg-[#f2f8f5] hover:bg-[#e4f2ec] text-[#0b8061] border border-[#cbe4da] font-medium text-sm transition-colors cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-lg bg-[#FCFBF8] hover:bg-[#F7F6F1] text-[#193B2C] border border-[#E8E7E0] text-xs font-medium uppercase tracking-editorial-wide transition-colors cursor-pointer"
               >
-                <MessageSquare className="w-4 h-4 text-[#10a880]" />
+                <MessageSquare className="w-4 h-4 text-[#193B2C]" />
                 <span>Fast-Track on WhatsApp</span>
               </button>
 
               <button
                 onClick={handleReset}
-                className="text-xs text-[#6a8782] hover:text-[#0e211e] underline py-2"
+                className="text-xs text-[#7F8B7E] hover:text-[#252A25] underline py-2 cursor-pointer"
               >
                 Start Over
               </button>

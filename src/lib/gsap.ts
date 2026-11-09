@@ -23,3 +23,4 @@ export const EASINGS = {
   smooth: "power2.out",
   inOut: "power2.inOut",
 };
+

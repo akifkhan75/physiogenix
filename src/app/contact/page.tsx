@@ -17,40 +17,40 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-col w-full bg-[#f9faf8] text-left">
+    <div className="flex flex-col w-full bg-[#FCFBF8] text-left">
       <Breadcrumbs
         items={[{ name: "Schedule Intake", href: "/contact", current: true }]}
       />
 
       {/* Header */}
-      <section className="pt-8 pb-20 sm:pb-28 border-b border-[#e0e6e1]">
+      <section className="pt-8 pb-16 sm:pb-24 border-b border-[#E8E7E0]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 space-y-6">
-          <span className="text-[10px] uppercase tracking-editorial-widest text-[#758c87] block">
+          <span className="text-[11px] font-semibold uppercase tracking-editorial-widest text-[#193B2C] block">
             Consultation Intake // Sector F-7 Markaz
           </span>
-          <h1 className="font-editorial text-5xl sm:text-6xl lg:text-[72px] leading-[0.98] font-light text-[#0d1a17]">
+          <h1 className="font-editorial text-5xl sm:text-6xl lg:text-[72px] leading-[0.98] font-light text-[#252A25]">
             Schedule an Assessment
           </h1>
-          <p className="font-editorial text-2xl sm:text-3xl text-[#475c57] leading-relaxed font-light">
+          <p className="font-editorial text-2xl sm:text-3xl text-[#555E55] leading-relaxed font-light">
             Direct 1-on-1 consultation with Dr. Faiza Yousef (DPT, COMPT, CDNP). Request your slot below or connect directly via WhatsApp.
           </p>
         </div>
       </section>
 
       {/* Main Grid */}
-      <section className="py-24 sm:py-32">
+      <section className="py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left Column: Form (7 cols) */}
-            <div className="lg:col-span-7 bg-white border border-[#e0e6e1] p-8 sm:p-10">
-              <div className="pb-6 mb-6 border-b border-[#e0e6e1]">
-                <span className="text-[10px] uppercase tracking-editorial-widest text-[#0f5948] font-bold block">
+            <div className="lg:col-span-7 bg-[#FCFBF8] border border-[#E8E7E0] rounded-xl p-8 sm:p-10 shadow-sm">
+              <div className="pb-6 mb-6 border-b border-[#E8E7E0]">
+                <span className="text-[10px] uppercase tracking-editorial-widest text-[#193B2C] font-semibold block">
                   Intake Protocol
                 </span>
-                <h2 className="font-editorial text-2xl sm:text-3xl text-[#0d1a17] mt-1">
+                <h2 className="font-editorial text-2xl sm:text-3xl text-[#252A25] mt-1 font-light">
                   Clinical Appointment Request
                 </h2>
-                <p className="text-xs text-[#5c736e] font-light mt-1">
+                <p className="text-xs text-[#555E55] font-light mt-1">
                   Submissions are reviewed directly by Dr. Faiza&apos;s team to schedule 1-on-1 time in Sector F-7 Markaz.
                 </p>
               </div>
@@ -59,23 +59,23 @@ export default function ContactPage() {
             </div>
 
             {/* Right Column: Contact Details (5 cols) */}
-            <div className="lg:col-span-5 space-y-8">
+            <div className="lg:col-span-5 space-y-6">
               {/* WhatsApp Fast-Track */}
-              <div className="p-8 bg-[#081411] text-[#f9faf8] space-y-4">
-                <span className="text-[10px] uppercase tracking-editorial-widest text-[#20c997] block">
+              <div className="p-8 bg-[#F0F4EF] rounded-xl border border-[#DFE5DC] text-[#252A25] space-y-4">
+                <span className="text-[10px] uppercase tracking-editorial-widest text-[#193B2C] font-semibold block">
                   Instant Scheduling
                 </span>
-                <h3 className="font-editorial text-2xl text-white">
+                <h3 className="font-editorial text-2xl text-[#252A25] font-light">
                   Chat Directly on WhatsApp
                 </h3>
-                <p className="text-xs text-white/70 font-light leading-relaxed">
+                <p className="text-xs text-[#555E55] font-light leading-relaxed">
                   Prefer describing your symptoms via chat? Connect with our clinical dispatch team on WhatsApp for same-day schedule coordination.
                 </p>
                 <a
                   href={clinicData.contact.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 py-3 px-5 bg-[#0f5948] hover:bg-[#10a880] text-white text-xs font-semibold uppercase tracking-editorial-wide transition-colors"
+                  className="inline-flex items-center gap-2 py-3 px-5 rounded bg-[#193B2C] hover:bg-[#122B20] text-[#FCFBF8] text-xs font-medium uppercase tracking-editorial-wide transition-colors"
                 >
                   <WhatsAppIcon className="w-3.5 h-3.5" />
                   <span>Open WhatsApp (+92 330 5122052)</span>
@@ -83,28 +83,28 @@ export default function ContactPage() {
               </div>
 
               {/* Physical Location */}
-              <div className="p-8 bg-white border border-[#e0e6e1] space-y-6">
+              <div className="p-8 bg-[#FCFBF8] rounded-xl border border-[#E8E7E0] space-y-6 shadow-sm">
                 <div className="space-y-2">
-                  <span className="text-[10px] uppercase tracking-editorial-widest text-[#758c87] block">
+                  <span className="text-[10px] uppercase tracking-editorial-widest text-[#7F8B7E] font-medium block">
                     Location // F-7 Markaz
                   </span>
-                  <p className="text-xs text-[#2d3f3b] leading-relaxed font-light">
+                  <p className="text-xs text-[#252A25] leading-relaxed font-light">
                     {clinicData.contact.address.line1} <br />
-                    <strong className="font-medium text-[#0d1a17]">{clinicData.contact.address.landmark}</strong> <br />
+                    <strong className="font-medium text-[#193B2C]">{clinicData.contact.address.landmark}</strong> <br />
                     {clinicData.contact.address.sector}, {clinicData.contact.address.city}, {clinicData.contact.address.country}
                   </p>
                 </div>
 
                 {/* Timings */}
-                <div className="pt-4 border-t border-[#e0e6e1] space-y-2">
-                  <span className="text-[10px] uppercase tracking-editorial-widest text-[#758c87] block">
+                <div className="pt-4 border-t border-[#E8E7E0] space-y-2">
+                  <span className="text-[10px] uppercase tracking-editorial-widest text-[#7F8B7E] font-medium block">
                     Weekly Operating Timings:
                   </span>
-                  <div className="space-y-1.5 text-xs text-[#475c57] font-light">
+                  <div className="space-y-1.5 text-xs text-[#555E55] font-light">
                     {clinicData.contact.timings.map((t, i) => (
                       <div key={i} className="flex items-center justify-between py-0.5">
                         <span>{t.days}</span>
-                        <strong className={`font-medium ${t.hours === "Closed" ? "text-red-500" : "text-[#0d1a17]"}`}>
+                        <strong className={`font-medium ${t.hours === "Closed" ? "text-amber-700" : "text-[#252A25]"}`}>
                           {t.hours}
                         </strong>
                       </div>
@@ -113,13 +113,13 @@ export default function ContactPage() {
                 </div>
 
                 {/* Phone */}
-                <div className="pt-4 border-t border-[#e0e6e1] space-y-1 text-xs">
-                  <span className="text-[10px] uppercase tracking-editorial-widest text-[#758c87] block">
+                <div className="pt-4 border-t border-[#E8E7E0] space-y-1 text-xs">
+                  <span className="text-[10px] uppercase tracking-editorial-widest text-[#7F8B7E] font-medium block">
                     Direct Clinical Line:
                   </span>
                   <a
                     href={`tel:${clinicData.contact.primaryPhone.replace(/\s+/g, "")}`}
-                    className="font-medium text-[#0f5948] hover:underline block"
+                    className="font-medium text-[#193B2C] hover:underline block"
                   >
                     {clinicData.contact.primaryPhone}
                   </a>

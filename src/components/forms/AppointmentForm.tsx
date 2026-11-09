@@ -225,15 +225,17 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
       {/* Date & Time Preferences */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-semibold uppercase tracking-wider text-[#536965] mb-1.5">
-            Preferred Date *
+          <label className="block text-xs font-semibold uppercase tracking-wider text-[#555E55] mb-1.5 flex items-center justify-between">
+            <span>Preferred Date *</span>
+            <span className="text-[10px] text-[#7F8B7E] font-normal normal-case">Mon–Sat (Closed Sun)</span>
           </label>
           <div className="relative">
-            <Calendar className="absolute left-3.5 top-3 w-4 h-4 text-[#7a918d]" />
+            <Calendar className="absolute left-3.5 top-3 w-4 h-4 text-[#7F8B7E]" />
             <input
               type="date"
+              min={new Date().toISOString().split("T")[0]}
               {...register("preferredDate")}
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#dbe7e2] bg-white text-sm text-[#102421] focus:outline-none focus:border-[#10a880] focus:ring-2 focus:ring-[#10a880]/15 transition-all"
+              className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-[#E8E7E0] bg-[#FCFBF8] text-sm text-[#252A25] focus:outline-none focus:border-[#193B2C] focus:ring-1 focus:ring-[#193B2C] transition-all"
             />
           </div>
           {errors.preferredDate && (
@@ -289,7 +291,7 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-[#10a880] hover:bg-[#0c8263] text-white font-medium text-sm tracking-wide transition-all shadow-md shadow-[#10a880]/20 disabled:opacity-70 cursor-pointer"
+        className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-lg bg-[#193B2C] hover:bg-[#122B20] text-[#FCFBF8] font-medium text-xs uppercase tracking-editorial-widest transition-all shadow-sm disabled:opacity-70 cursor-pointer"
       >
         {isSubmitting ? (
           <>

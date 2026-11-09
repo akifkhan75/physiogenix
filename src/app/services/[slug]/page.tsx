@@ -50,7 +50,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   }
 
   return (
-    <div className="flex flex-col w-full bg-[#f9faf8] text-left">
+    <div className="flex flex-col w-full bg-[#FCFBF8] text-left">
       <Breadcrumbs
         items={[
           { name: "Departments", href: "/services" },
@@ -59,13 +59,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       />
 
       {/* Header */}
-      <section className="pt-8 pb-20 sm:pb-28 border-b border-[#e0e6e1]">
+      <section className="pt-8 pb-16 sm:pb-24 border-b border-[#E8E7E0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
           <div className="max-w-4xl space-y-6">
-            <span className="text-[10px] uppercase tracking-editorial-widest text-[#0f5948] font-bold block">
+            <span className="text-[11px] font-semibold uppercase tracking-editorial-widest text-[#193B2C] block">
               Department Protocol // {service.slug}
             </span>
-            <h1 className="font-editorial text-4xl sm:text-6xl lg:text-[72px] leading-[0.98] font-light text-[#0d1a17]">
+            <h1 className="font-editorial text-4xl sm:text-6xl lg:text-[72px] leading-[0.98] font-light text-[#252A25]">
               {service.title}
             </h1>
             <p className="font-editorial text-2xl sm:text-3xl text-[#475c57] leading-relaxed font-light">

@@ -16,25 +16,25 @@ export const metadata: Metadata = {
 
 export default function AssessmentPage() {
   return (
-    <div className="flex flex-col w-full bg-[#f9faf8] text-left">
+    <div className="flex flex-col w-full bg-[#FCFBF8] text-left">
       <Breadcrumbs
-        items={[{ name: "Symptom Screener", href: "/assessment", current: true }]}
+        items={[{ name: "Conditions & Screener", href: "/assessment", current: true }]}
       />
 
       {/* Header */}
-      <section className="pt-8 pb-20 sm:pb-28 border-b border-[#e0e6e1]">
+      <section className="pt-8 pb-16 sm:pb-24 border-b border-[#E8E7E0]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 space-y-6">
-          <span className="text-[10px] uppercase tracking-editorial-widest text-[#758c87] block">
+          <span className="text-[11px] font-semibold uppercase tracking-editorial-widest text-[#193B2C] block">
             Clinical Triage // Self-Check Tool
           </span>
-          <h1 className="font-editorial text-5xl sm:text-6xl lg:text-[72px] leading-[0.98] font-light text-[#0d1a17]">
-            Biomechanical Screener
+          <h1 className="font-editorial text-5xl sm:text-6xl lg:text-[72px] leading-[0.98] font-light text-[#252A25]">
+            Conditions &amp; Symptom Screener
           </h1>
-          <p className="font-editorial text-2xl sm:text-3xl text-[#475c57] leading-relaxed font-light">
+          <p className="font-editorial text-2xl sm:text-3xl text-[#555E55] leading-relaxed font-light">
             Answer 3 targeted questions about your symptoms to identify the relevant clinical rehabilitation department and typical session milestone under our 12-session cap.
           </p>
 
-          <div className="flex flex-wrap items-center gap-6 pt-2 text-xs font-mono text-[#758c87]">
+          <div className="flex flex-wrap items-center gap-6 pt-2 text-xs font-mono text-[#7F8B7E]">
             <span>2-MINUTE SELF-CHECK</span>
             <span>•</span>
             <span>EVIDENCE-BASED TRIAGE</span>
@@ -45,7 +45,7 @@ export default function AssessmentPage() {
       </section>
 
       {/* Screener Component */}
-      <section className="py-24 sm:py-32">
+      <section className="py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
           <ClinicalScreener />
 

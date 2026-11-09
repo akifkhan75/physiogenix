@@ -38,12 +38,12 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <nav aria-label="Breadcrumb" className="py-3 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <ol className="flex items-center flex-wrap gap-1.5 text-xs text-[#5e7c76]">
+      <nav aria-label="Breadcrumb" className="py-3 px-4 sm:px-6 lg:px-10 max-w-7xl mx-auto w-full">
+        <ol className="flex items-center flex-wrap gap-1.5 text-xs text-[#7F8B7E]">
           <li>
             <Link
               href="/"
-              className="inline-flex items-center gap-1 text-[#5e7c76] hover:text-[#0e211e] transition-colors"
+              className="inline-flex items-center gap-1 text-[#7F8B7E] hover:text-[#193B2C] transition-colors"
             >
               <Home className="w-3.5 h-3.5" />
               <span>Home</span>
@@ -51,15 +51,15 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
           </li>
           {items.map((item, idx) => (
             <li key={idx} className="flex items-center gap-1.5">
-              <ChevronRight className="w-3 h-3 text-[#9cb5b0]" />
+              <ChevronRight className="w-3 h-3 text-[#AAB7A5]" />
               {item.current ? (
-                <span className="font-semibold text-[#0e211e]" aria-current="page">
+                <span className="font-semibold text-[#252A25]" aria-current="page">
                   {item.name}
                 </span>
               ) : (
                 <Link
                   href={item.href}
-                  className="text-[#5e7c76] hover:text-[#0e211e] transition-colors"
+                  className="text-[#7F8B7E] hover:text-[#193B2C] transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -71,3 +71,4 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
     </>
   );
 };
+
