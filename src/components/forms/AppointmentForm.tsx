@@ -281,3 +281,4 @@ export const AppointmentForm: React.FC<AppointmentFormProps> = ({
     </form>
   );
 };
+

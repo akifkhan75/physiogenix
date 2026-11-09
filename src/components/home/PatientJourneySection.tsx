@@ -58,3 +58,4 @@ export const PatientJourneySection: React.FC = () => {
     </section>
   );
 };
+

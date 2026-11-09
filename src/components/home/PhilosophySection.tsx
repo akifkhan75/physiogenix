@@ -76,3 +76,4 @@ export const PhilosophySection: React.FC = () => {
     </section>
   );
 };
+

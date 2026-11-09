@@ -82,3 +82,4 @@ export const ClinicEnvironmentSection: React.FC = () => {
     </section>
   );
 };
+
