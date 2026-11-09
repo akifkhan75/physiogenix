@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-emerald: #10a880;
+    --brand-emerald-dark: #0c8263;
+    --brand-emerald-light: #20c997;
+    --brand-emerald-glow: rgba(16, 168, 128, 0.16);
+    --brand-slate: #365759;
+    --brand-slate-dark: #223c3e;
+    --brand-forest: #0d211e;
+    --brand-forest-deep: #081513;
+    --brand-bg: #fbfdfc;
+    --brand-bg-soft: #f3f8f5;
+    --brand-card: #ffffff;
+    --brand-card-hover: #f9fcfb;
+    --brand-border: #e2ede8;
+    --brand-border-focus: #10a880;
+    --brand-text: #102421;
+    --brand-text-muted: #536965;
+    --brand-text-light: #7a918d;
+    --brand-badge-bg: #e6f6f1;
+    --brand-badge-text: #0c7a5d;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--brand-bg);
+    color: var(--brand-text);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #10a880;
+    color: #ffffff;
+  }
+}
+
+/* Custom editorial aesthetics & utility classes */
+.editorial-serif {
+  font-family: var(--font-playfair), Georgia, Cambria, serif;
+}
+
+.font-sans-body {
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Subtle glassmorphism navigation */
+.glass-nav {
+  background: rgba(251, 253, 252, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(226, 237, 232, 0.8);
+}
+
+.glass-nav-scrolled {
+  background: rgba(251, 253, 252, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 20px -2px rgba(13, 33, 30, 0.05);
+  border-bottom: 1px solid rgba(226, 237, 232, 0.9);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--brand-border);
+}
+
+.subtle-shadow {
+  box-shadow: 0 10px 30px -5px rgba(13, 33, 30, 0.04), 0 4px 12px -2px rgba(13, 33, 30, 0.02);
+}
+
+.elevated-shadow {
+  box-shadow: 0 20px 40px -15px rgba(13, 33, 30, 0.07), 0 8px 16px -4px rgba(13, 33, 30, 0.03);
+}
+
+/* Ambient glow */
+.ambient-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(16, 168, 128, 0.08) 0%, rgba(16, 168, 128, 0) 70%);
+}
+
+/* Hide scrollbar for tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
