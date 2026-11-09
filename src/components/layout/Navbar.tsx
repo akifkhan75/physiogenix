@@ -39,6 +39,7 @@ export const Navbar: React.FC = () => {
     },
     { name: "Dr. Faiza", href: "/about-dr-faiza" },
     { name: "About Clinic", href: "/about-physiogenix" },
+    { name: "Screener", href: "/assessment" },
     { name: "Contact & Location", href: "/contact" },
   ];
 

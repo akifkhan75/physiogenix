@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { StickyMobileAppointmentBar } from "@/components/layout/StickyMobileAppointmentBar";
+import { FloatingWhatsAppButton } from "@/components/ui/FloatingWhatsAppButton";
 import { clinicData } from "@/data/clinicData";
 
 const sans = Plus_Jakarta_Sans({
@@ -165,6 +166,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <StickyMobileAppointmentBar />
+        <FloatingWhatsAppButton />
       </body>
     </html>
   );

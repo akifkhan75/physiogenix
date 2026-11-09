@@ -3,24 +3,31 @@
 @layer base {
   :root {
     --brand-emerald: #10a880;
-    --brand-emerald-dark: #0c8263;
+    --brand-emerald-dark: #0b8061;
     --brand-emerald-light: #20c997;
-    --brand-emerald-glow: rgba(16, 168, 128, 0.16);
+    --brand-emerald-subtle: #e6f6f1;
+    --brand-emerald-glow: rgba(16, 168, 128, 0.15);
+    
     --brand-slate: #365759;
     --brand-slate-dark: #223c3e;
+    --brand-slate-subtle: #edf3f1;
+
     --brand-forest: #0d211e;
-    --brand-forest-deep: #081513;
-    --brand-bg: #fbfdfc;
-    --brand-bg-soft: #f3f8f5;
+    --brand-forest-deep: #071412;
+    --brand-forest-card: #0d2622;
+
+    --brand-bg: #fafcfb;
+    --brand-bg-soft: #f2f7f4;
     --brand-card: #ffffff;
     --brand-card-hover: #f9fcfb;
-    --brand-border: #e2ede8;
-    --brand-border-focus: #10a880;
-    --brand-text: #102421;
-    --brand-text-muted: #536965;
-    --brand-text-light: #7a918d;
-    --brand-badge-bg: #e6f6f1;
-    --brand-badge-text: #0c7a5d;
+
+    --brand-border: #dbe7e2;
+    --brand-border-hairline: rgba(16, 168, 128, 0.12);
+    --brand-border-dark: rgba(255, 255, 255, 0.1);
+
+    --brand-text: #0e211e;
+    --brand-text-muted: #4e6662;
+    --brand-text-subtle: #738c87;
   }
 
   html {
@@ -33,7 +40,6 @@
   body {
     background-color: var(--brand-bg);
     color: var(--brand-text);
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     overflow-x: hidden;
   }
 
@@ -43,35 +49,55 @@
   }
 }
 
-/* Custom editorial aesthetics & utility classes */
+/* Typography classes */
 .editorial-serif {
-  font-family: var(--font-playfair), Georgia, Cambria, serif;
+  font-family: var(--font-playfair), "Newsreader", Georgia, Cambria, serif;
+  font-feature-settings: "dlig" 1, "liga" 1;
 }
 
 .font-sans-body {
   font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Subtle glassmorphism navigation */
+/* Hairline Grid & Architectural lines */
+.hairline-border {
+  border: 1px solid var(--brand-border);
+}
+
+.hairline-border-b {
+  border-bottom: 1px solid var(--brand-border);
+}
+
+.hairline-border-t {
+  border-top: 1px solid var(--brand-border);
+}
+
+/* Architectural Crosshair indicator */
+.crosshair-corner {
+  position: relative;
+}
+.crosshair-corner::before,
+.crosshair-corner::after {
+  content: "";
+  position: absolute;
+  background-color: #10a880;
+  opacity: 0.4;
+}
+
+/* Glassmorphism navigation & cards */
 .glass-nav {
-  background: rgba(251, 253, 252, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(226, 237, 232, 0.8);
+  background: rgba(250, 252, 251, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(219, 231, 226, 0.85);
 }
 
 .glass-nav-scrolled {
-  background: rgba(251, 253, 252, 0.94);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 4px 20px -2px rgba(13, 33, 30, 0.05);
-  border-bottom: 1px solid rgba(226, 237, 232, 0.9);
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--brand-border);
+  background: rgba(250, 252, 251, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 4px 24px -2px rgba(13, 33, 30, 0.05);
+  border-bottom: 1px solid rgba(219, 231, 226, 0.95);
 }
 
 .subtle-shadow {
@@ -79,15 +105,19 @@
 }
 
 .elevated-shadow {
-  box-shadow: 0 20px 40px -15px rgba(13, 33, 30, 0.07), 0 8px 16px -4px rgba(13, 33, 30, 0.03);
+  box-shadow: 0 24px 48px -12px rgba(13, 33, 30, 0.08), 0 8px 16px -4px rgba(13, 33, 30, 0.03);
 }
 
-/* Ambient glow */
-.ambient-glow {
-  background: radial-gradient(circle at 50% 50%, rgba(16, 168, 128, 0.08) 0%, rgba(16, 168, 128, 0) 70%);
+/* Ambient glow effects */
+.ambient-emerald-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(16, 168, 128, 0.09) 0%, rgba(16, 168, 128, 0) 70%);
 }
 
-/* Hide scrollbar for tabs */
+.ambient-slate-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(54, 87, 89, 0.08) 0%, rgba(54, 87, 89, 0) 70%);
+}
+
+/* Precision scrollbar hide */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
