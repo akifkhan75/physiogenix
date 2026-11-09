@@ -28,7 +28,7 @@ export const MinimalFooter: React.FC = () => {
                   PHYSIOGENIX
                 </span>
                 <span className="text-[10px] tracking-editorial-widest uppercase text-[#AAB7A5] block">
-                  Movement Rehabilitation &amp; Manual Therapy
+                  Dr. Faiza • Sector F-7 Islamabad
                 </span>
               </div>
             </div>
@@ -38,8 +38,9 @@ export const MinimalFooter: React.FC = () => {
             </p>
 
             <div className="text-xs text-[#AAB7A5] space-y-1 font-light pt-2">
-              <div>Dr. Faiza Yousef, DPT (STMU), COMPT, CDNP, CDDC</div>
-              <div className="text-[#AAB7A5]/70">Ethical standard: clinical care capped at 12 sessions maximum.</div>
+              <div>Dr. Faiza Yousef, Lead Consultant Physiotherapist (DPT STMU, COMPT, CDNP, CDDC)</div>
+              <div className="text-[#DFE5DC] font-medium">★ 5.0 stars on Google • 65 verified patient reviews in F-7</div>
+              <div className="text-[#AAB7A5]/70">Strict ethical commitment: care capped at 12 sessions maximum.</div>
             </div>
           </div>
 
@@ -60,18 +61,23 @@ export const MinimalFooter: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/about-physiogenix" className="hover:text-white transition-colors">
+                  Clinic Ethos
+                </Link>
+              </li>
+              <li>
                 <Link href="/services" className="hover:text-white transition-colors">
-                  Services (8)
+                  Services (10)
                 </Link>
               </li>
               <li>
                 <Link href="/assessment" className="hover:text-white transition-colors">
-                  Conditions
+                  Pain Screener
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-white transition-colors">
-                  Contact
+                  Contact &amp; Map
                 </Link>
               </li>
               <li>
@@ -90,13 +96,14 @@ export const MinimalFooter: React.FC = () => {
             <div className="space-y-2.5 text-xs text-white/80 font-light">
               <div className="leading-relaxed">
                 2nd Floor, Chaudhary Plaza, Bhittai Road <br />
-                <span className="text-white/95">Above Medicsi Hospital (Next to PSO)</span> <br />
-                Sector F-7 Markaz, Islamabad, Pakistan
+                <span className="text-white/95">Next to PSO Pump (Above Medicsi)</span> <br />
+                Sector F-7 Markaz, Islamabad, 45000, PK
               </div>
 
               <div className="pt-2 border-t border-white/10 space-y-1 text-[#AAB7A5]">
-                <div>Mon – Fri: 12:00 PM – 8:00 PM</div>
-                <div>Saturday: 3:00 PM – 8:00 PM</div>
+                <div>Mon – Thu: 12:00 PM – 8:00 PM</div>
+                <div>Friday: 1:00 PM – 8:00 PM</div>
+                <div>Saturday: 3:00 PM – 6:00 PM</div>
                 <div className="text-[#AAB7A5]/60">Sunday: Closed</div>
               </div>
             </div>
@@ -110,9 +117,15 @@ export const MinimalFooter: React.FC = () => {
             <div className="space-y-2 text-xs text-white/80 font-light">
               <a
                 href={`tel:${clinicData.contact.primaryPhone.replace(/\s+/g, "")}`}
-                className="block hover:text-white transition-colors"
+                className="block hover:text-white transition-colors font-mono"
               >
                 {clinicData.contact.primaryPhone}
+              </a>
+              <a
+                href={`tel:${clinicData.contact.secondaryPhone.replace(/\s+/g, "")}`}
+                className="block hover:text-white transition-colors font-mono"
+              >
+                {clinicData.contact.secondaryPhone}
               </a>
 
               <a
@@ -122,7 +135,7 @@ export const MinimalFooter: React.FC = () => {
                 className="inline-flex items-center gap-1.5 text-[#DFE5DC] hover:underline pt-1"
               >
                 <WhatsAppIcon className="w-3.5 h-3.5" />
-                <span>WhatsApp Direct</span>
+                <span>WhatsApp Slot Booking</span>
               </a>
 
               <div className="pt-3 border-t border-white/10 space-y-1.5">
@@ -155,13 +168,13 @@ export const MinimalFooter: React.FC = () => {
         {/* Bottom Metadata Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#AAB7A5] font-light">
           <div>
-            © {new Date().getFullYear()} Physiogenix by Dr. Faiza Yousef. Sector F-7 Markaz, Islamabad.
+            © {new Date().getFullYear()} Physiogenix by Dr. Faiza. Sector F-7 Markaz, Islamabad.
           </div>
           <div className="flex items-center gap-4">
             <span>Coordinates: 33.7206° N, 73.0559° E</span>
             <span>•</span>
             <Link href="/privacy" className="hover:text-white transition-colors">
-              Privacy &amp; Medical Confidentiality
+              Medical Disclaimer &amp; Privacy
             </Link>
           </div>
         </div>

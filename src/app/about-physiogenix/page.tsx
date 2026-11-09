@@ -89,7 +89,7 @@ export default function AboutPhysiogenixPage() {
               Situated on the 2nd Floor of Chaudhary Plaza on Bhittai Road, directly above Medicsi Hospital and adjacent to the PSO petrol pump, our clinic provides a peaceful sanctuary away from traffic noise. The facility features private consultation suites, sterile dry needling stations, and dedicated posture correction zones.
             </p>
             <div className="pt-2 text-xs text-[#7F8B7E]">
-              Hours: Monday – Friday 12:00 PM – 8:00 PM | Saturday 3:00 PM – 8:00 PM | Sunday Closed.
+              Hours: Monday – Thursday 12:00 PM – 8:00 PM | Friday 1:00 PM – 8:00 PM | Saturday 3:00 PM – 6:00 PM | Sunday Closed.
             </div>
           </div>
         </div>

@@ -50,8 +50,8 @@ export const DoctorSection: React.FC = () => {
           <div ref={portraitRef} className="lg:col-span-5 w-full flex justify-center lg:justify-start">
             <div className="relative w-full max-w-md aspect-[4/5] rounded-lg overflow-hidden border border-[#E8E7E0] bg-[#FCFBF8] shadow-sm">
               <Image
-                src="/dr-faiza/dr-faiza-portrait-600.jpg"
-                alt="Dr. Faiza Yousef, DPT, COMPT - Lead Physical Therapist"
+                src="/dr-faiza/physiogenix-photo-dr-faiza.webp"
+                alt="Dr. Faiza Yousef, DPT, COMPT - Lead Consultant Physiotherapist & Rehab Specialist"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 480px"
                 className="object-cover object-center filter contrast-[1.02]"
@@ -90,7 +90,7 @@ export const DoctorSection: React.FC = () => {
                 Dr. Faiza Yousef
               </h2>
               <p className="text-xs sm:text-sm font-medium uppercase tracking-editorial-wide text-[#7F8B7E]">
-                Doctor of Physical Therapy • Shifa Tameer-e-Millat University
+                Lead Consultant Physiotherapist &amp; Rehab Specialist • STMU Alumna (8 Years Experience)
               </p>
             </div>
 

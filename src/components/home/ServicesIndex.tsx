@@ -3,9 +3,10 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight, CheckCircle2 } from "lucide-react";
 import { useGSAP } from "@gsap/react";
-import { gsap, EASINGS, prefersReducedMotion } from "@/lib/gsap";
+import { gsap, prefersReducedMotion } from "@/lib/gsap";
+import { clinicData } from "@/data/clinicData";
 
 export const ServicesIndex: React.FC = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -37,42 +38,42 @@ export const ServicesIndex: React.FC = () => {
     { scope: containerRef }
   );
 
-  const featuredServices = [
+  const featuredHighlights = [
     {
-      id: "ortho-manual",
+      id: "back-pain-feature",
       number: "01",
-      tag: "Manual Medicine",
-      title: "Orthopaedic & Spinal Manual Therapy",
+      tag: "Spinal Mobilization",
+      title: "Back & Neck Pain Care",
       summary:
-        "High-precision joint mobilization, lumbar decompression, and manual soft-tissue release for persistent spine and joint disorders.",
+        "Sore from hip to shoulder blade? We map where it starts through hands-on joint mobilization and decompression.",
       sessionGuide: "6–10 Sessions",
-      slug: "orthopedic-manual-therapy",
-      image: "/images/service-manual-therapy.jpg",
-      alt: "Close-up of precise manual spinal therapy hands-on technique",
+      slug: "back-pain",
+      image: "/images/clinic/03-hands-on-manual-care.jpg",
+      alt: "Hands-on orthopedic manual therapy session at Physiogenix Islamabad",
     },
     {
-      id: "biomechanics",
+      id: "dry-needling-feature",
       number: "02",
-      tag: "Biomechanical Analysis",
-      title: "Spinal Alignment & Postural Restoration",
+      tag: "Myofascial Release",
+      title: "Clinical Dry Needling",
       summary:
-        "Anatomical assessment to correct scoliosis, forward-head posture, and compensatory movement patterns from desk work and injury.",
-      sessionGuide: "4–8 Sessions",
-      slug: "postural-ergonomic-rehabilitation",
-      image: "/images/service-spine-biomarkers.jpg",
-      alt: "Anatomical human spinal column model in bright minimalist clinic",
+        "Certified CDNP intervention targeting locked myofascial trigger points, releasing deep tension without machines.",
+      sessionGuide: "4–6 Sessions",
+      slug: "muscle-stiffness",
+      image: "/images/clinic/06-dry-needling-support.jpg",
+      alt: "Clinical dry needling myofascial release treatment at Physiogenix",
     },
     {
-      id: "sports-rehab",
+      id: "joint-rehab-feature",
       number: "03",
-      tag: "Movement Optimization",
-      title: "Sports Injury & Functional Movement Recovery",
+      tag: "Orthopaedic Recovery",
+      title: "Injury Rehabilitation",
       summary:
-        "Kinetic chain conditioning and neuromuscular re-education for athletes, runners, and active individuals recovering from ligament or muscle strain.",
+        "Knee trouble, frozen shoulder, and life after surgery. Stage-by-stage progressive recovery to restore full movement.",
       sessionGuide: "8–12 Sessions",
-      slug: "sports-injury-rehabilitation",
-      image: "/images/clinic-sanctuary-editorial.jpg",
-      alt: "Boutique clinic sanctuary interior with natural light and treatment table",
+      slug: "injury-rehabilitation",
+      image: "/images/clinic/05-orthopaedic-therapy.jpg",
+      alt: "Orthopaedic therapy and joint mobilization at Physiogenix clinic",
     },
   ];
 
@@ -84,18 +85,20 @@ export const ServicesIndex: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Heading, intro, and Explore All link (4 cols) */}
-          <div ref={leftColRef} className="lg:col-span-4 space-y-6">
-            <span className="text-[11px] font-semibold uppercase tracking-editorial-widest text-[#193B2C] block">
-              Specialized Care
-            </span>
+          {/* Left Column: Heading, intro, and Full Directory (5 cols) */}
+          <div ref={leftColRef} className="lg:col-span-5 space-y-6">
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-semibold uppercase tracking-editorial-widest text-[#193B2C] block">
+                Find Your Pain, Find Your Therapist
+              </span>
+            </div>
 
             <h2 className="font-editorial text-3xl sm:text-4xl lg:text-5xl font-light text-[#252A25] leading-[1.08]">
-              Restorative Clinical Services
+              Specialized Care, Sorted by Pain
             </h2>
 
             <p className="text-sm sm:text-base text-[#555E55] font-light leading-relaxed">
-              Every protocol is evaluated and personally administered by Dr. Faiza Yousef. Combining advanced manual joint mobilization, clinical dry needling, and neuromuscular retraining to restore fluid, pain-free movement.
+              At Physiogenix, we start by understanding how you move and what is causing discomfort before recommending treatment. Each problem has its own category with an ethical 12-session ceiling.
             </p>
 
             <div className="pt-2">
@@ -103,40 +106,39 @@ export const ServicesIndex: React.FC = () => {
                 href="/services"
                 className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-editorial-widest text-[#193B2C] hover:text-[#122B20] transition-colors group"
               >
-                <span>Explore All 8 Departments</span>
+                <span>View Complete 10-Department Directory</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
 
-            {/* Quick Department Directory */}
-            <div className="pt-8 border-t border-[#E8E7E0] space-y-2.5">
+            {/* Verified Clinical Departments List (from live site) */}
+            <div className="pt-8 border-t border-[#E8E7E0] space-y-2">
               <span className="text-[10px] uppercase tracking-editorial-widest text-[#7F8B7E] block pb-1">
-                Clinical Departments Directory
+                Verified Clinical Departments (Sector F-7)
               </span>
-              {[
-                { name: "Dry Needling & Myofascial Release", href: "/services/dry-needling-myofascial" },
-                { name: "Sciatica & Nerve Entrapment", href: "/services/sciatica-nerve-radiculopathy" },
-                { name: "Frozen Shoulder Protocol", href: "/services/frozen-shoulder-capsulitis" },
-                { name: "Knee & Joint Preservation", href: "/services/knee-osteoarthritis-joint" },
-              ].map((item) => (
+              {clinicData.services.slice(0, 7).map((dept) => (
                 <Link
-                  key={item.name}
-                  href={item.href}
-                  className="flex items-center justify-between text-xs text-[#555E55] hover:text-[#193B2C] transition-colors py-1 group border-b border-[#E8E7E0]/40"
+                  key={dept.id}
+                  href={`/services/${dept.slug}`}
+                  className="flex items-center justify-between text-xs text-[#555E55] hover:text-[#193B2C] transition-colors py-1.5 group border-b border-[#E8E7E0]/50"
                 >
-                  <span>{item.name}</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#AAB7A5] group-hover:text-[#193B2C] transition-colors" />
+                  <span className="group-hover:translate-x-0.5 transition-transform font-light">
+                    {dept.title}
+                  </span>
+                  <span className="text-[10px] font-mono text-[#7F8B7E] group-hover:text-[#193B2C]">
+                    {dept.typicalSessionCount}
+                  </span>
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Right Column: Carefully arranged image-led service collection (8 cols) */}
+          {/* Right Column: 3 Authentic Photo Cards (7 cols) */}
           <div
             ref={cardsContainerRef}
-            className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {featuredServices.map((service) => (
+            {featuredHighlights.map((service) => (
               <Link
                 key={service.id}
                 href={`/services/${service.slug}`}
@@ -148,11 +150,11 @@ export const ServicesIndex: React.FC = () => {
                     src={service.image}
                     alt={service.alt}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 30vw, 360px"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 25vw, 320px"
                     className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#252A25]/60 via-transparent to-transparent opacity-80" />
-                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#252A25]/70 via-transparent to-transparent opacity-85" />
+
                   {/* Top Tag & Number */}
                   <div className="absolute top-3 inset-x-3 flex items-center justify-between text-[10px] tracking-editorial-widest uppercase">
                     <span className="px-2 py-0.5 rounded bg-[#FCFBF8]/90 backdrop-blur-sm text-[#193B2C] font-semibold">
@@ -165,12 +167,12 @@ export const ServicesIndex: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-5 space-y-3">
+                <div className="p-5 space-y-2.5">
                   <div className="text-[10px] font-semibold uppercase tracking-editorial-widest text-[#7F8B7E]">
                     {service.tag}
                   </div>
 
-                  <h3 className="font-editorial text-xl font-normal text-[#252A25] group-hover:text-[#193B2C] transition-colors leading-snug">
+                  <h3 className="font-editorial text-lg font-normal text-[#252A25] group-hover:text-[#193B2C] transition-colors leading-snug">
                     {service.title}
                   </h3>
 
@@ -178,7 +180,7 @@ export const ServicesIndex: React.FC = () => {
                     {service.summary}
                   </p>
 
-                  <div className="pt-2 flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-editorial-wide text-[#193B2C]">
+                  <div className="pt-1 flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-editorial-wide text-[#193B2C]">
                     <span>View Protocol</span>
                     <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>

@@ -16,31 +16,31 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="flex flex-col w-full bg-[#f9faf8] text-left">
+    <div className="flex flex-col w-full bg-[#FCFBF8] text-left">
       <Breadcrumbs
         items={[{ name: "Privacy Policy", href: "/privacy", current: true }]}
       />
 
       {/* Header */}
-      <section className="pt-8 pb-20 sm:pb-28 border-b border-[#e0e6e1]">
+      <section className="pt-8 pb-16 sm:pb-24 border-b border-[#E8E7E0]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-10 space-y-6">
-          <span className="text-[10px] uppercase tracking-editorial-widest text-[#758c87] block">
+          <span className="text-[11px] font-semibold uppercase tracking-editorial-widest text-[#193B2C] block">
             Legal &amp; Clinical Confidentiality
           </span>
-          <h1 className="font-editorial text-5xl sm:text-6xl lg:text-[72px] leading-[0.98] font-light text-[#0d1a17]">
+          <h1 className="font-editorial text-5xl sm:text-6xl lg:text-[72px] leading-[0.98] font-light text-[#252A25]">
             Patient Privacy Policy
           </h1>
-          <p className="font-editorial text-2xl sm:text-3xl text-[#475c57] leading-relaxed font-light">
+          <p className="font-editorial text-2xl sm:text-3xl text-[#555E55] leading-relaxed font-light">
             Our commitment to medical confidentiality, patient data protection, and ethical healthcare communication at Physiogenix Islamabad.
           </p>
         </div>
       </section>
 
       {/* Policy Clauses */}
-      <section className="py-24 sm:py-32">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-10 space-y-12 text-sm sm:text-base text-[#475c57] leading-relaxed font-light">
+      <section className="py-20 sm:py-28">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-10 space-y-12 text-sm sm:text-base text-[#555E55] leading-relaxed font-light">
           <div className="space-y-3">
-            <h2 className="font-editorial text-3xl text-[#0d1a17]">
+            <h2 className="font-editorial text-3xl text-[#252A25] font-light">
               1. Patient Clinical Confidentiality
             </h2>
             <p>
@@ -49,7 +49,7 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div className="space-y-3">
-            <h2 className="font-editorial text-3xl text-[#0d1a17]">
+            <h2 className="font-editorial text-3xl text-[#252A25] font-light">
               2. Appointment &amp; Intake Details
             </h2>
             <p>

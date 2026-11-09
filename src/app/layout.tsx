@@ -111,10 +111,10 @@ export default function RootLayout({
               priceRange: "$$",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "2nd Floor, Chaudhary Plaza, Bhittai Road (Above Medicsi Hospital, beside PSO Petrol Pump)",
+                streetAddress: "2nd Floor, Chaudhary Plaza, Bhittai Road, Next to PSO Pump, Sector F-7",
                 addressLocality: "Islamabad",
                 addressRegion: "Islamabad Capital Territory",
-                postalCode: "44000",
+                postalCode: "45000",
                 addressCountry: "PK",
               },
               geo: {
@@ -125,15 +125,21 @@ export default function RootLayout({
               openingHoursSpecification: [
                 {
                   "@type": "OpeningHoursSpecification",
-                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
                   opens: "12:00",
+                  closes: "20:00",
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: "Friday",
+                  opens: "13:00",
                   closes: "20:00",
                 },
                 {
                   "@type": "OpeningHoursSpecification",
                   dayOfWeek: "Saturday",
                   opens: "15:00",
-                  closes: "20:00",
+                  closes: "18:00",
                 },
               ],
               founder: {

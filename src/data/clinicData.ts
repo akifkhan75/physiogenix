@@ -10,6 +10,21 @@ export interface ServiceItem {
   typicalSessionCount: string;
   featuredBadge?: string;
   iconName: string;
+  heroImage?: string;
+}
+
+export interface TrainingProgramItem {
+  title: string;
+  tagline: string;
+  description: string;
+  focusAreas: string[];
+}
+
+export interface SymptomGuideItem {
+  symptom: string;
+  targetDepartment: string;
+  targetSlug: string;
+  guidance: string;
 }
 
 export interface TestimonialItem {
@@ -34,12 +49,21 @@ export const clinicData = {
   slogan: "From Pain to Power",
   establishedPracticeYears: "8+",
 
+  googleReviews: {
+    rating: 5.0,
+    totalReviews: 65,
+    platform: "Google Verified Reviews",
+    sector: "F-7 Markaz, Islamabad",
+    summary: "5.0 stars on Google • 65 patient reviews • Sector F-7, Islamabad",
+  },
+
   leadPractitioner: {
     name: "Dr. Faiza Yousef",
     degrees: "DPT, COMPT, CDNP, CDDC",
-    title: "Founder & Lead Physiotherapist",
+    title: "Lead Consultant Physiotherapist & Rehab Specialist",
     degreeName: "Doctor of Physical Therapy (DPT)",
     university: "Shifa Tameer-e-Millat University (STMU), Islamabad",
+    experienceYears: "8 Years Clinical Experience",
     certifications: [
       {
         abbr: "COMPT",
@@ -63,37 +87,40 @@ export const clinicData = {
       },
     ],
     experienceSummary:
-      "With over 8 years of dedicated clinical practice in Islamabad, Dr. Faiza Yousef combines evidence-based orthopedic manual physical therapy with neuromuscular re-education. She champions a hands-before-machines philosophy, diagnosing underlying biomechanical dysfunctions rather than simply treating transient pain symptoms.",
+      "Dr. Faiza Yousef is the Lead Consultant Physiotherapist and founder of Physiogenix in Sector F-7 Islamabad. With 8 years of clinical experience and a Doctor of Physical Therapy degree from Shifa Tameer-e-Millat University (STMU), she champions a hands-before-machines philosophy, diagnosing underlying biomechanical dysfunctions rather than simply masking transient pain symptoms.",
     instagramPersonal: "https://www.instagram.com/faiza_fitnessphysio/",
     instagramClinic: "https://www.instagram.com/_physiogenix_/",
     handlePersonal: "@faiza_fitnessphysio",
     handleClinic: "@_physiogenix_",
+    photo: "/dr-faiza/physiogenix-photo-dr-faiza.webp",
   },
 
   contact: {
     primaryPhone: "+92 330 5122052",
     primaryPhoneFormatted: "+92 330 5122052",
     secondaryPhone: "+92 332 1965829",
+    secondaryPhoneFormatted: "+92 332 1965829",
     whatsappLink:
       "https://wa.me/923305122052?text=Hello%20Physiogenix%2C%20I%20would%20like%20to%20book%20a%20physiotherapy%20assessment%20with%20Dr.%20Faiza.",
     emailPlaceholder: "appointments@physiogenix.pk",
     address: {
       line1: "2nd Floor, Chaudhary Plaza, Bhittai Road",
-      landmark: "Above Medicsi Hospital, beside PSO Petrol Pump (Near Jinnah Super)",
+      landmark: "Above Medicsi Hospital, Next to PSO Pump (Near Jinnah Super)",
       sector: "Sector F-7 Markaz",
       city: "Islamabad",
-      postalCode: "44000",
+      postalCode: "45000",
       country: "Pakistan",
       fullAddress:
-        "2nd Floor, Chaudhary Plaza, Bhittai Road (Next to PSO Pump, above Medicsi Hospital), Sector F-7 Markaz, Islamabad, 44000",
+        "2nd Floor, Chaudhary Plaza, Bhittai Road, Next to PSO Pump, Sector F-7, Islamabad, ICT, 45000, PK",
     },
     googleMapsEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.826019688329!2d73.0537!3d33.7206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbf9d8f95c805%3A0x67dbb184281313bf!2sF-7%20Markaz%2C%20Islamabad!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s",
     directionsNote:
-      "Conveniently situated in central F-7 Markaz Islamabad on Bhittai Road, directly above Medicsi Hospital and adjacent to the PSO petrol station. Dedicated client parking is available in front of the plaza.",
+      "Find us in F-7, Islamabad, at 2nd Floor, Chaudhary Plaza, Bhittai Road, Next to PSO Pump. F-6, F-8 and G-7 sit right beside us. Dedicated plaza parking is available directly in front of the building.",
     timings: [
-      { days: "Monday – Friday", hours: "12:00 PM – 8:00 PM" },
-      { days: "Saturday", hours: "3:00 PM – 8:00 PM" },
+      { days: "Monday – Thursday", hours: "12:00 PM – 8:00 PM" },
+      { days: "Friday", hours: "1:00 PM – 8:00 PM" },
+      { days: "Saturday", hours: "3:00 PM – 6:00 PM" },
       { days: "Sunday", hours: "Closed" },
     ],
   },
@@ -103,384 +130,516 @@ export const clinicData = {
       title: "Hands Before Machines",
       tagline: "Manual Clinical Precision",
       description:
-        "Passive electrotherapy machines cannot replace skilled clinical palpation. We prioritize hands-on orthopedic manual joint mobilization, soft tissue release, and targeted muscle activation.",
+        "Passive electrotherapy and heating gadgets cannot replace skilled clinical palpation. We prioritize hands-on orthopedic manual joint mobilization, soft tissue release, and targeted muscle activation.",
       metric: "100%",
-      metricLabel: "Individualized Hands-On Time",
+      metricLabel: "Individualized Hands-On Care",
     },
     {
       title: "Ethical 12-Session Cap",
       tagline: "Transparent Clinical Pathway",
       description:
-        "We reject endless therapy packages. Our treatment protocols are structured to deliver measurable resolution within 8 to 12 sessions max, graduating patients toward personal physical autonomy.",
+        "Plans stop at 12 sessions maximum, so the total is never an ambiguous mystery. Our treatment protocols deliver measurable resolution, graduating patients toward personal physical autonomy.",
       metric: "Max 12",
-      metricLabel: "Session Cap Standard",
+      metricLabel: "Strict Session Ceiling",
     },
     {
-      title: "Assessment-Led Care",
-      tagline: "Root-Cause Diagnostics",
+      title: "Check-Up First, Treatment Second",
+      tagline: "Root-Cause Biomechanics",
       description:
-        "Every treatment plan starts with a comprehensive physical, postural, and neurological movement screen. We fix what actually causes the dysfunction, not just where it hurts.",
+        "We start by understanding how you move and what is causing discomfort before recommending treatment. If a problem belongs with a medical doctor first, we refer straight away.",
       metric: "45 Min",
-      metricLabel: "Dedicated Assessment Window",
+      metricLabel: "Kinetic Assessment",
     },
     {
-      title: "1-on-1 Dedicated Supervision",
-      tagline: "No Crowded Treatment Halls",
+      title: "Active Movement Re-education",
+      tagline: "Lasting Durability",
       description:
-        "You receive Dr. Faiza's undivided clinical attention throughout your appointment. Private clinical room, focused manual execution, and customized guidance.",
-      metric: "1:1",
-      metricLabel: "Doctor-to-Patient Ratio",
+        "Relief is only half the job. Our corrective and strengthening exercise programs build resilience so pain has less reason to return.",
+      metric: "8+ Yrs",
+      metricLabel: "Clinical Specialization",
     },
   ],
 
-  patientJourney: [
-    {
-      step: "01",
-      title: "Differential Clinical Assessment",
-      subtitle: "Uncovering Root Biomechanical Dysfunctions",
-      details:
-        "A 45-minute in-depth physical examination testing range of motion, neurodynamics, muscular firing imbalances, joint play, and postural alignment.",
-    },
-    {
-      step: "02",
-      title: "Targeted Manual Intervention",
-      subtitle: "Restoring Joint Mechanics & Decompressing Tissue",
-      details:
-        "Precise orthopedic manual adjustments, soft tissue release, dry needling for trigger points, and decompression to alleviate acute pain and restore mobility.",
-    },
-    {
-      step: "03",
-      title: "Neuromuscular Re-Education",
-      subtitle: "Rebuilding Core Stability & Functional Strength",
-      details:
-        "Targeted neuromuscular corrective exercises designed to stabilize vulnerable joints, correct movement habits, and reinforce corrected alignment.",
-    },
-    {
-      step: "04",
-      title: "Autonomy & Long-Term Prevention",
-      subtitle: "Graduation With Ergonomic Independence",
-      details:
-        "Clear home maintenance conditioning, workplace ergonomic adjustments, and posture protocols so you stay resilient without perpetual clinic dependency.",
-    },
-  ],
-
+  // Verified 10 clinical condition departments + core modalities
   services: [
+    {
+      id: "back-pain",
+      slug: "back-pain",
+      title: "Back Pain",
+      shortDescription:
+        "Sore from hip to shoulder blade? We map where it starts, identify disc or facet strain, and mobilize your spine.",
+      fullDescription:
+        "Back pain rarely comes from a single isolated point. Our comprehensive clinical assessment tracks the mechanical source across your lumbar spine, pelvis, sacroiliac joints, and deep core musculature. Through hands-on segmental joint mobilization, spinal decompression, and targeted postural release, we relieve acute tension and restore pain-free spinal movement.",
+      clinicalIndications: [
+        "Lumbar disc herniation and discogenic pain",
+        "Facet joint locking and lower back stiffness",
+        "Sacroiliac (SI) joint dysfunction",
+        "Acute postural spasm from prolonged sitting or heavy lifting",
+        "Degenerative disc changes and chronic morning stiffness",
+      ],
+      treatmentModalities: [
+        "High-grade Maitland and Mulligan lumbar joint mobilizations",
+        "Manual axial spinal decompression",
+        "Deep lumbar myofascial trigger-point release",
+        "Clinical dry needling for deep quadratus lumborum and psoas tension",
+        "Core stabilization and directional preference exercise prescription",
+      ],
+      expectedOutcomes: [
+        "Immediate decompression of lumbar neural and facet structures",
+        "Restoration of forward bending and spinal extension without pain",
+        "Significant reduction in localized inflammatory ache",
+        "Long-term spinal durability through functional core recruitment",
+      ],
+      typicalSessionCount: "6–10 Sessions",
+      featuredBadge: "Core Department",
+      iconName: "Activity",
+      heroImage: "/images/clinic/03-hands-on-manual-care.jpg",
+    },
+    {
+      id: "neck-pain",
+      slug: "neck-pain",
+      title: "Neck Pain",
+      shortDescription:
+        "One-sided or all-over neck pain, checked properly. Manual cervical mobilization and ergonomic correction.",
+      fullDescription:
+        "Prolonged desk hours, looking down at phones, and whiplash strains compress the delicate cervical spine. At Physiogenix, Dr. Faiza conducts precise cervical segmental assessments to differentiate muscle spasms, facet joint restrictions, and nerve root irritation. Hands-on manual therapy gently restores cervical rotation and eliminates persistent tension.",
+      clinicalIndications: [
+        "Cervical facet joint restriction and locked neck (acute torticollis)",
+        "Postural forward-head tech neck syndrome",
+        "Upper trapezius and levator scapulae chronic spasms",
+        "Cervical disc bulge with radiating shoulder stiffness",
+        "Post-trauma cervical strain and whiplash recovery",
+      ],
+      treatmentModalities: [
+        "Gentle cervical and upper thoracic joint mobilization",
+        "Occipital base suboccipital release",
+        "Trigger-point dry needling for upper traps and levator scapulae",
+        "Deep neck flexor retraining and scapular stabilization exercises",
+        "Ergonomic workstation alignment protocol",
+      ],
+      expectedOutcomes: [
+        "Full, comfortable cervical rotation and lateral flexion",
+        "Complete resolution of locked neck spasms and stiffness",
+        "Relief of tension radiating between shoulder blades",
+        "Sustainable ergonomic posture during long work hours",
+      ],
+      typicalSessionCount: "4–8 Sessions",
+      featuredBadge: "High Demand",
+      iconName: "Compass",
+      heroImage: "/images/clinic/03-hands-on-manual-care.jpg",
+    },
+    {
+      id: "headache-migraine",
+      slug: "headache-migraine",
+      title: "Headache and Migraine",
+      shortDescription:
+        "Headaches that begin in the neck, and what helps. Upper cervical manual therapy and trigger-point release.",
+      fullDescription:
+        "Many chronic tension headaches and persistent migraines originate not in the head, but in dysfunctions of the upper cervical spine (C1–C3) and suboccipital musculature (cervicogenic headache). We examine cervical joint mobility and nerve irritation to eliminate the physical trigger of your pain, providing profound relief without perpetual medication.",
+      clinicalIndications: [
+        "Cervicogenic headaches arising from the base of the skull",
+        "Tension-type headaches related to desk posture and jaw clenching",
+        "Unilateral throbbing head pain stemming from upper neck stiffness",
+        "Occipital neuralgia and pain behind the eyes or temple",
+      ],
+      treatmentModalities: [
+        "Specific C1–C2 manual articular mobilization",
+        "Suboccipital myofascial decompression and gentle traction",
+        "Intramuscular dry needling to release stubborn cervical trigger points",
+        "Postural realignment to take mechanical stress off the occiput",
+      ],
+      expectedOutcomes: [
+        "Dramatic reduction in headache frequency, intensity, and duration",
+        "Resolution of base-of-skull tenderness and ocular pressure",
+        "Decreased reliance on acute migraine pharmaceuticals",
+        "Clear understanding of personal postural headache triggers",
+      ],
+      typicalSessionCount: "4–6 Sessions",
+      featuredBadge: "Specialized",
+      iconName: "Zap",
+      heroImage: "/images/clinic/06-dry-needling-support.jpg",
+    },
+    {
+      id: "frozen-shoulder",
+      slug: "frozen-shoulder",
+      title: "Frozen Shoulder",
+      shortDescription:
+        "Pain and lost movement, treated stage by stage. Glenohumeral capsule mobilization and rotator cuff rehabilitation.",
+      fullDescription:
+        "Adhesive capsulitis (frozen shoulder) and rotator cuff pathology progress through distinct inflammatory, freezing, and thawing stages. Rather than forcing painful movement or giving standard exercises, Dr. Faiza provides precise, stage-appropriate manual capsule glides, gentle distraction, and scapulothoracic retraining to reclaim your arm's freedom.",
+      clinicalIndications: [
+        "Adhesive capsulitis (freezing, frozen, and thawing stages)",
+        "Rotator cuff impingement, tendinitis, and partial tears",
+        "Inability to reach overhead, fasten clothes, or sleep on the shoulder",
+        "Bicipital tendinitis and anterior shoulder pain",
+        "Post-immobilization shoulder stiffness",
+      ],
+      treatmentModalities: [
+        "Maitland glenohumeral joint mobilization (anterior, posterior, inferior glides)",
+        "Scapular upward rotation mobilization",
+        "Myofascial release of subscapularis, infraspinatus, and pectoralis minor",
+        "Isometric and progressive eccentric rotator cuff strengthening",
+      ],
+      expectedOutcomes: [
+        "Progressive restoration of full 180° shoulder abduction and overhead reach",
+        "Elimination of deep nocturnal shoulder ache and sleep interruption",
+        "Restoration of internal rotation to comfortably reach behind the back",
+        "Rebuilding dynamic rotator cuff stability",
+      ],
+      typicalSessionCount: "8–12 Sessions",
+      featuredBadge: "Clinical Focus",
+      iconName: "Shield",
+      heroImage: "/images/clinic/05-orthopaedic-therapy.jpg",
+    },
+    {
+      id: "scoliosis",
+      slug: "scoliosis",
+      title: "Scoliosis",
+      shortDescription:
+        "Spinal curves explained, with honest limits on exercise. 3D posture alignment and muscular balance.",
+      fullDescription:
+        "Scoliosis requires an honest, evidence-based approach. We explain spinal curves clearly—distinguishing what physical therapy can improve (pain, muscle imbalance, rib mobility, and posture control) and where its limits lie. Through specialized three-dimensional corrective exercises, we lengthen concave restrictions and strengthen convex muscles for lasting spinal support.",
+      clinicalIndications: [
+        "Adolescent idiopathic scoliosis (mild to moderate functional curves)",
+        "Adult degenerative scoliosis with localized back or rib pain",
+        "Uneven shoulder heights, pelvic asymmetry, and rib hump prominence",
+        "Postural fatigue and muscle ache from asymmetric spinal loading",
+      ],
+      treatmentModalities: [
+        "Three-dimensional scoliosis corrective exercises and rotational breathing",
+        "Pelvic and sacral symmetry realignment",
+        "Manual soft-tissue release of hypertonic spinal convexity muscles",
+        "Scapular and core isometric stabilization under corrective positioning",
+      ],
+      expectedOutcomes: [
+        "Significant reduction in back fatigue and postural discomfort",
+        "Improved visual spinal alignment and shoulder/pelvic balance",
+        "Empowerment with tailored daily home corrective movement strategies",
+        "Clear, transparent monitoring of spinal stability over time",
+      ],
+      typicalSessionCount: "8–12 Sessions",
+      featuredBadge: "Specialized",
+      iconName: "Sliders",
+      heroImage: "/images/clinic/12-gym-movement-is-medicine.jpg",
+    },
+    {
+      id: "nerve-compression-sciatica",
+      slug: "nerve-compression-sciatica",
+      title: "Sciatica and Nerves",
+      shortDescription:
+        "Leg pain with pins and needles, followed back to its cause. Neural mobilization and disc decompression.",
+      fullDescription:
+        "Sharp shooting pain down the buttock, leg, or foot with tingling and numbness is often misdiagnosed as simple hamstring tightness. We follow the sciatic nerve path back to its source—whether a compressed lumbar nerve root, piriformis syndrome, or lateral canal stenosis. Our hands-on nerve glides and spinal decompression relieve mechanical irritation safely.",
+      clinicalIndications: [
+        "True sciatic nerve radiculopathy from L4-L5 or L5-S1 disc herniation",
+        "Piriformis syndrome compressing the deep sciatic pathway",
+        "Tingling, numbness, or electrical burning sensations in leg or calf",
+        "Spinal canal and lateral recess foraminal stenosis",
+      ],
+      treatmentModalities: [
+        "Gentle neural dynamic mobilization and sciatic nerve flossing",
+        "Lumbar spinal traction and positional decompression",
+        "Deep piriformis and deep gluteal myofascial release",
+        "Intramuscular dry needling around non-irritable motor points",
+        "Directional preference McKenzie extension and core stabilization",
+      ],
+      expectedOutcomes: [
+        "Centralization and elimination of radiating leg pain",
+        "Resolution of numbness, pins and needles, and foot sensations",
+        "Restoration of comfortable walking, sitting, and driving tolerance",
+        "Protection of spinal discs against recurrent nerve pinch",
+      ],
+      typicalSessionCount: "6–10 Sessions",
+      featuredBadge: "High Priority",
+      iconName: "ShieldCheck",
+      heroImage: "/images/clinic/03-hands-on-manual-care.jpg",
+    },
+    {
+      id: "postural-restoration",
+      slug: "postural-restoration",
+      title: "Posture Correction",
+      shortDescription:
+        "Forward head and rounded shoulders, assessed first. 3D posture realignment and postural endurance.",
+      fullDescription:
+        "Poor posture is not laziness; it is a structural muscular adaptation to repetitive daily habits. Dr. Faiza conducts full-body kinetic assessments—evaluating pelvis tilt, thoracic kyphosis, scapular winging, and forward head posture. We release shortened tissues and activate dormant postural stabilizers so you stand tall effortlessly.",
+      clinicalIndications: [
+        "Forward head posture ('tech neck') and dowager's hump tendencies",
+        "Hyperkyphosis and rounded protracted shoulders from desk work",
+        "Anterior or posterior pelvic tilt causing chronic lumbar strain",
+        "Postural fatigue and burning sensations between shoulder blades",
+      ],
+      treatmentModalities: [
+        "Manual thoracic spinal extension mobilization",
+        "Pectoralis minor and anterior neck soft-tissue release",
+        "Scapular retractor and deep core endurance retraining",
+        "Dynamic postural re-education and active proprioceptive feedback",
+      ],
+      expectedOutcomes: [
+        "Effortless, natural upright posture without continuous conscious strain",
+        "Elimination of mid-back burning aches and upper-trap tension",
+        "Expanded lung capacity and freer breathing patterns",
+        "Personalized ergonomic adjustments for work and home setups",
+      ],
+      typicalSessionCount: "6–8 Sessions",
+      featuredBadge: "Preventative",
+      iconName: "Activity",
+      heroImage: "/images/clinic/12-gym-movement-is-medicine.jpg",
+    },
+    {
+      id: "muscle-stiffness",
+      slug: "muscle-stiffness",
+      title: "Muscle Stiffness",
+      shortDescription:
+        "Tight, heavy muscles and what keeps them that way. Dry needling, cupping, and deep myofascial release.",
+      fullDescription:
+        "Chronic muscle tightness and heavy, aching limbs persist when myofascial trigger points remain locked in continuous micro-spasm. At Physiogenix, we combine clinical dry needling (CDNP), dynamic cupping (CDDC), and manual myofascial release to immediately break the pain-spasm cycle, flood the tissue with fresh circulation, and restore elasticity.",
+      clinicalIndications: [
+        "Chronic myofascial pain syndrome and fibrotic muscle knots",
+        "Persistent tightness in hamstrings, calves, quadriceps, and lats",
+        "Restricted range of motion and stiffness upon waking",
+        "Post-workout delayed soreness and accumulated muscular fatigue",
+      ],
+      treatmentModalities: [
+        "Certified Dry Needling (CDNP) with sterile single-use filiform needles",
+        "Dynamic dry cupping (CDDC) for myofascial decompression and lymph flow",
+        "Cross-friction manual soft-tissue mobilization",
+        "Active neuromuscular stretching and mobility drills",
+      ],
+      expectedOutcomes: [
+        "Immediate release of stubborn muscular knots and deep tension",
+        "Restoration of light, relaxed, and supple muscle tone",
+        "Enhanced local blood circulation and accelerated cellular recovery",
+        "Noticeably increased movement freedom and flexibility",
+      ],
+      typicalSessionCount: "4–6 Sessions",
+      featuredBadge: "Restorative",
+      iconName: "Sparkles",
+      heroImage: "/images/clinic/06-dry-needling-support.jpg",
+    },
+    {
+      id: "sports-injuries",
+      slug: "sports-injuries",
+      title: "Sports Injuries",
+      shortDescription:
+        "Sprains, pulls and strains, with a clear return-to-play plan. Ligament rehab and biomechanical conditioning.",
+      fullDescription:
+        "Athletic performance demands resilient tissues and flawless biomechanics. Whether you are dealing with a lateral ankle sprain, hamstring strain, tennis elbow, or runner's knee, Dr. Faiza provides phased sports rehabilitation. We guide you from acute injury management to sport-specific power, agility, and injury prevention.",
+      clinicalIndications: [
+        "Ankle sprains (ATFL, CFL) and chronic ankle instability",
+        "Hamstring, groin, and calf muscle strains",
+        "Tennis elbow (lateral epicondylitis) and golfer's elbow",
+        "Patellofemoral pain syndrome and IT band friction",
+        "Overuse injuries in runners, gym enthusiasts, and cricketers",
+      ],
+      treatmentModalities: [
+        "Phased ligament and tendon loading protocols",
+        "Eccentric strengthening for tendon remodeling",
+        "Manual joint mobilizations of ankle, knee, and hip complexes",
+        "Neuromuscular agility and plyometric movement retraining",
+      ],
+      expectedOutcomes: [
+        "Complete healing and tissue remodeling of injured ligaments/muscles",
+        "Restoration of explosive power, joint stability, and agility",
+        "Confidence to return to sport without fear of re-injury",
+        "Biomechanical movement screening to prevent future breakdown",
+      ],
+      typicalSessionCount: "6–12 Sessions",
+      featuredBadge: "Performance",
+      iconName: "Zap",
+      heroImage: "/images/clinic/12-gym-movement-is-medicine.jpg",
+    },
+    {
+      id: "injury-rehabilitation",
+      slug: "injury-rehabilitation",
+      title: "Injury Rehabilitation",
+      shortDescription:
+        "Knee trouble, joint pain and life after surgery. ACL rehab, arthroscopic recovery, and joint preservation.",
+      fullDescription:
+        "Recovering from orthopedic surgery or major joint trauma requires structured, evidence-based clinical guidance. We work closely with post-operative protocols for ACL reconstructions, meniscus repairs, hip replacements, and complex fractures. Dr. Faiza restores joint mobility early, rebuilds muscle mass safely, and prevents compensatory limp.",
+      clinicalIndications: [
+        "Post-operative ACL, PCL, and meniscus repair rehabilitation",
+        "Post-arthroscopy knee and shoulder recovery",
+        "Total knee and hip replacement (arthroplasty) rehab",
+        "Post-fracture stiffness and joint immobilization recovery",
+        "Chronic knee osteoarthritis and degenerative joint preservation",
+      ],
+      treatmentModalities: [
+        "Safe early-phase passive and active-assisted range of motion",
+        "Patellofemoral and tibiofemoral manual mobilization",
+        "Targeted quadriceps, hamstring, and gluteal hypertrophy training",
+        "Gait re-education to eliminate limping and asymmetry",
+      ],
+      expectedOutcomes: [
+        "Restoration of full operational range of motion",
+        "Rebuilding lost muscle volume and strength symmetry",
+        "Pain-free weight-bearing and natural walking gait",
+        "Successful milestone discharge aligned with orthopedic surgical standards",
+      ],
+      typicalSessionCount: "8–12 Sessions",
+      featuredBadge: "Post-Op Standard",
+      iconName: "ShieldCheck",
+      heroImage: "/images/clinic/05-orthopaedic-therapy.jpg",
+    },
+    // Supporting Modality Detail Routes for Full URL Compatibility
     {
       id: "orthopedic-manual-therapy",
       slug: "orthopedic-manual-therapy",
       title: "Orthopedic Manual Therapy & Joint Mobilization",
       shortDescription:
-        "Advanced hands-on passive and active mobilization techniques designed to restore physiological joint glide and eliminate structural restrictions.",
+        "Certified Orthopedic Manual Physical Therapy (COMPT) by Dr. Faiza. Restoring arthrokinematic joint glide.",
       fullDescription:
-        "Orthopedic Manual Physical Therapy (OMPT) is the clinical cornerstone of Physiogenix. Using internationally validated manual techniques (Maitland, Mulligan, and Kaltenborn concepts), Dr. Faiza precisely assesses and treats dysfunctions of the spine and peripheral joints. Rather than using passive electronic heat packs, manual therapy directly addresses joint capsule contractures, impingements, and restricted movement axes.",
+        "Orthopedic manual therapy is the clinical core of Physiogenix. Using skilled hands-on force applications, Dr. Faiza mobilizes stiff joint capsules, decompresses restricted vertebrae, and releases muscular guarding. This manual precision restores natural biomechanics far faster than passive electrotherapy machines.",
       clinicalIndications: [
-        "Restricted joint range of motion (Spine, Shoulder, Hip, Knee)",
-        "Facet joint locked syndrome and spinal stiffness",
-        "Acute and chronic joint hypomobility",
-        "Post-immobilization stiffness following cast or sling removal",
-        "Persistent musculoskeletal mechanical blocks",
+        "Articular stiffness in spine, shoulders, hips, and knees",
+        "Facet locking, spinal impingements, and restricted movement",
+        "Post-traumatic joint hypo-mobility",
+        "Chronic musculoskeletal aches resisting standard exercise",
       ],
       treatmentModalities: [
-        "Grade I–IV spinal and peripheral joint mobilizations",
-        "Mobilization with Movement (Mulligan concept)",
-        "Myofascial trigger point release and friction massage",
-        "Joint capsule stretching and functional realignment",
+        "Maitland Grade I–IV oscillatory joint mobilizations",
+        "Mulligan Mobilization with Movement (MWM)",
+        "Spinal decompression and passive mechanical distraction",
+        "Targeted neuromuscular facilitation",
       ],
       expectedOutcomes: [
-        "Immediate restoration of functional joint mobility",
-        "Rapid reduction in localized intra-articular pressure and pain",
-        "Restored biomechanical arthrokinematics during daily movements",
+        "Instant mechanical ease in restricted joint planes",
+        "Restoration of fluid, uninhibited range of motion",
+        "Reduction in localized pain signaling and muscle spasm",
       ],
-      typicalSessionCount: "6 – 10 sessions based on joint chronicity",
-      featuredBadge: "Core Speciality",
-      iconName: "Activity",
-    },
-    {
-      id: "spinal-care",
-      slug: "spinal-care",
-      title: "Spine Rehabilitation (Cervical, Thoracic & Lumbar)",
-      shortDescription:
-        "Root-cause spinal decompressive and postural rehabilitation protocols for herniated discs, lumbago, and chronic neck strain.",
-      fullDescription:
-        "Spinal pain is rarely an isolated problem; it stems from mechanical load imbalances, facet joint lock, or disc extrusion pressing on neurological pathways. At Physiogenix, our spine rehabilitation protocol integrates segmental manual spinal decompression, directional preference testing, and deep spinal stabilizer re-activation (multifidus and transversus abdominis).",
-      clinicalIndications: [
-        "Lumbar disc bulge / herniation (L4-L5, L5-S1)",
-        "Cervical radiculopathy and neck spasm",
-        "Thoracic spine stiffness and ribcage restrictions",
-        "Degenerative disc disease and spondylosis",
-        "Chronic postural back ache from sedentary desk work",
-      ],
-      treatmentModalities: [
-        "Directional preference McKenzie-based mechanical diagnosis",
-        "Gentle manual spinal traction and mobilization",
-        "Suboccipital and paraspinal soft-tissue release",
-        "Progressive spinal stabilization and neutral spine loading",
-      ],
-      expectedOutcomes: [
-        "Centralization and elimination of radiating back/neck pain",
-        "Reinforced segmental spinal core stamina",
-        "Protected posture during lifting, sitting, and driving",
-      ],
-      typicalSessionCount: "8 – 12 sessions maximum",
-      featuredBadge: "High Demand",
-      iconName: "ShieldAlert",
-    },
-    {
-      id: "headache-migraine",
-      slug: "headache-migraine",
-      title: "Headache & Cervicogenic Migraine Management",
-      shortDescription:
-        "Specialized upper cervical spine decompression and suboccipital release to treat chronic tension and cervicogenic headaches.",
-      fullDescription:
-        "Many patients struggling with chronic daily headaches or recurring migraines suffer from cervicogenic origin—referred pain originating from the upper cervical vertebrae (C1–C3) and suboccipital muscular spasms compressing the greater occipital nerve. Our specialized protocol targets the precise upper cervical joints and deep posterior neck musculature to stop the headache loop without relying on painkillers.",
-      clinicalIndications: [
-        "Cervicogenic headaches originating from base of skull",
-        "Tension headaches from screen fatigue and poor posture",
-        "Forward head carriage (Text Neck Syndrome)",
-        "Facial and ocular pressure stemming from neck stiffness",
-        "Occipital neuralgia and scalp tenderness",
-      ],
-      treatmentModalities: [
-        "Upper cervical manual mobilization (C0-C1-C2)",
-        "Suboccipital inhibition and myofascial decompression",
-        "Deep neck flexor (longus colli/capitis) activation",
-        "Dry needling of upper trapezius and levator scapulae",
-      ],
-      expectedOutcomes: [
-        "Substantial reduction in headache frequency and intensity",
-        "Relief of retro-orbital pressure and skull tenderness",
-        "Corrected cervical curvature and reduced medication reliance",
-      ],
-      typicalSessionCount: "6 – 8 sessions",
-      featuredBadge: "Targeted Relief",
-      iconName: "BrainCircuit",
-    },
-    {
-      id: "sciatica-nerve-rehabilitation",
-      slug: "sciatica-nerve-rehabilitation",
-      title: "Sciatica & Nerve Compression Protocol",
-      shortDescription:
-        "Evidence-based neural mobilization, piriformis release, and spinal decompression for shooting leg, glute, and nerve pain.",
-      fullDescription:
-        "Sciatica occurs when the sciatic nerve is irritated, trapped, or compressed either at the lumbar nerve roots (lumbar spine disc protrusion) or in the deep gluteal space (piriformis syndrome). Our protocol combines specialized neurodynamic testing, gentle nerve flossing, piriformis manual release, and pelvic leveling to free the sciatic nerve from mechanical entrapment.",
-      clinicalIndications: [
-        "Shooting electric shock pain down buttocks, hamstring, or calf",
-        "Numbness, tingling, or pins-and-needles in the foot or toes",
-        "Piriformis syndrome and deep buttock pain aggravated by sitting",
-        "Lumbar spinal stenosis with neurogenic claudication",
-      ],
-      treatmentModalities: [
-        "Neurodynamic slider and tensioner nerve gliding exercises",
-        "Manual decompression of deep gluteal rotators",
-        "Lumbar lateral shift correction and extension therapy",
-        "Pelvic asymmetry correction and hip mobilization",
-      ],
-      expectedOutcomes: [
-        "Abolition of peripheral numbness and sharp radiating nerve pain",
-        "Restored ability to sit, drive, and walk without limitation",
-        "Nerve glide restoration without surgical intervention",
-      ],
-      typicalSessionCount: "8 – 12 sessions",
-      featuredBadge: "Clinical Specialty",
-      iconName: "Zap",
-    },
-    {
-      id: "frozen-shoulder-rehabilitation",
-      slug: "frozen-shoulder-rehabilitation",
-      title: "Frozen Shoulder & Rotator Cuff Care",
-      shortDescription:
-        "Capsular stretching, rotator cuff rehabilitation, and scapulothoracic rhythm correction for severe shoulder stiffness.",
-      fullDescription:
-        "Adhesive capsulitis (frozen shoulder) and rotator cuff tears can cripple arm function and sleep quality. Whether in the freezing, frozen, or thawing stage, Dr. Faiza provides precise glenohumeral joint distraction, capsular stretch, and scapular rhythm re-coordination that gently break adhesions and restore overhead mobility.",
-      clinicalIndications: [
-        "Adhesive capsulitis (stages 1, 2, and 3)",
-        "Rotator cuff tendonitis, impingement, and partial tears",
-        "Inability to reach behind back, fasten clothes, or sleep on shoulder",
-        "Calcific tendonitis and bicipital tendon strain",
-      ],
-      treatmentModalities: [
-        "Inferior and posterior glenohumeral manual glides",
-        "Scapulothoracic manual release and winging correction",
-        "Eccentric rotator cuff strengthening and isometric stability",
-        "Therapeutic dry needling for supraspinatus and infraspinatus",
-      ],
-      expectedOutcomes: [
-        "Restoration of internal/external rotation and overhead reach",
-        "Elimination of deep dull aching night shoulder pain",
-        "Full return to sports, gym lifting, and functional daily tasks",
-      ],
-      typicalSessionCount: "8 – 12 sessions",
-      featuredBadge: "Functional Restoration",
-      iconName: "Compass",
-    },
-    {
-      id: "posture-scoliosis-correction",
-      slug: "posture-scoliosis-correction",
-      title: "Posture Restoration & Scoliosis Management",
-      shortDescription:
-        "Comprehensive 3D biomechanical posture correction, scoliosis stabilization, and ergonomic conditioning for modern desk lifestyles.",
-      fullDescription:
-        "Posture is not simply 'standing straight'; it is the dynamic alignment of the musculoskeletal system against gravity. Long hours at laptops, phones, and driving create structural adaptations like kyphosis, rounded shoulders, pelvic tilts, and compensatory scoliosis curves. Dr. Faiza’s posture restoration protocol addresses muscular shortening, weak postural phasic muscles, and spinal balance.",
-      clinicalIndications: [
-        "Postural thoracic kyphosis and rounded shoulder syndrome",
-        "Anterior pelvic tilt and swayback posture",
-        "Mild to moderate idiopathic scoliosis in adolescents and adults",
-        "Chronic office neck strain and upper cross syndrome",
-        "Repetitive ergonomic strain from corporate work",
-      ],
-      treatmentModalities: [
-        "Photographic and manual posture analysis",
-        "Pectoral and hip flexor myofascial lengthening",
-        "Rhomboid, middle/lower trapezius, and serratus anterior activation",
-        "Personalized workstation ergonomic conditioning setup",
-      ],
-      expectedOutcomes: [
-        "Natural upright posture without conscious straining",
-        "Symmetrical shoulder height and leveled pelvis",
-        "Prevention of degenerative spine wear and joint degeneration",
-      ],
-      typicalSessionCount: "6 – 10 sessions",
-      featuredBadge: "Signature Focus",
-      iconName: "Layers",
-    },
-    {
-      id: "sports-injury-rehabilitation",
-      slug: "sports-injury-rehabilitation",
-      title: "Sports Injury Rehabilitation & Return-to-Play",
-      shortDescription:
-        "Sport-specific biomechanical recovery, ligament rehabilitation, and dynamic athletic conditioning to get you back into play.",
-      fullDescription:
-        "From gym athletes and runners to cricket and padel players in Islamabad, athletic injuries require more than rest—they require progressive tissue loading and dynamic stability re-education. We design athletic rehabilitation pipelines that guide athletes through acute inflammation, tendon remodelling, eccentric loading, and sport-specific plyometrics.",
-      clinicalIndications: [
-        "ACL, MCL, and meniscus post-injury or post-surgery rehab",
-        "Ankle sprains, chronic ankle instability, and Achilles tendinopathy",
-        "Tennis elbow (lateral epicondylitis) and golfer's elbow",
-        "Hamstring, groin, and calf muscular strains",
-        "Patellofemoral pain syndrome (Runner's knee)",
-      ],
-      treatmentModalities: [
-        "Sport-specific movement screening and kinetic chain analysis",
-        "Eccentric tendon remodeling protocols",
-        "Proprioceptive balance training and neuromuscular control",
-        "Return-to-sport agility and load capacity testing",
-      ],
-      expectedOutcomes: [
-        "Complete tissue healing with optimal tensile strength",
-        "Elimination of reinjury vulnerability through kinetic chain balance",
-        "Confident, pain-free return to training and competition",
-      ],
-      typicalSessionCount: "8 – 12 sessions",
-      featuredBadge: "Athletic Performance",
-      iconName: "TrendingUp",
+      typicalSessionCount: "6–10 Sessions",
+      featuredBadge: "Clinical Core",
+      iconName: "Hand",
+      heroImage: "/images/clinic/03-hands-on-manual-care.jpg",
     },
     {
       id: "dry-needling-cupping",
       slug: "dry-needling-cupping",
-      title: "Certified Dry Needling & Dynamic Cupping (CDNP / CDDC)",
+      title: "Certified Dry Needling & Dynamic Cupping",
       shortDescription:
-        "Evidence-based intramuscular stimulation and myofascial decompression to rapidly deactivate stubborn muscular trigger points.",
+        "CDNP & CDDC certified interventions targeting stubborn myofascial knots, tight bands, and restricted fascial planes.",
       fullDescription:
-        "Administered under sterile medical protocol by Dr. Faiza (Certified Dry Needling Practitioner & Certified Dynamic Cupping Practitioner), this advanced therapy uses ultra-fine filament needles to elicit a localized twitch response in taut bands of muscle. Coupled with silicone and dynamic cupping, it delivers immediate decompression, accelerates local circulation, and relieves chronic knots.",
+        "Dry Needling uses sterile, hair-thin filiform needles inserted directly into myofascial trigger points to release deeply contracted muscle bands. Dynamic dry cupping introduces gentle negative pressure decompression. Together, they eliminate chronic muscular tightness and stimulate immediate restorative blood flow.",
       clinicalIndications: [
-        "Deep chronic muscle knots and hyperirritable trigger points",
-        "Trapezius and levator scapulae chronic spasms",
-        "Myofascial pain syndrome unresponsive to stretching",
-        "Iliotibial (IT) band tightness and gluteal contractures",
-        "Plantar fasciitis and recalcitrant calf tightness",
+        "Deep muscular trigger points in gluteal, spinal, and shoulder muscles",
+        "Chronic tension headaches and persistent neck stiffness",
+        "Tennis/golfer's elbow and chronic tendinopathies",
+        "Fascial adhesions and post-exercise muscle tightness",
       ],
       treatmentModalities: [
-        "Precision intramuscular trigger point dry needling (Primephysio standard)",
-        "Dynamic and static medical dry cupping",
-        "Myofascial gliding with biocompatible emollients",
-        "Post-needling neuro-sensory downregulation techniques",
+        "Certified Dry Needling (CDNP) with sterile single-use needles",
+        "Dynamic dry cupping (CDDC) with medical-grade silicone/acrylic cups",
+        "Fascial glide and therapeutic soft tissue massage",
       ],
       expectedOutcomes: [
-        "Immediate release of deep muscle spasm and chronic knotting",
-        "Enhanced microvascular blood flow and waste clearance",
-        "Rapid restoration of painless range of motion within 24–48 hours",
+        "Deactivation of stubborn trigger points and immediate muscle relaxation",
+        "Accelerated localized micro-circulation and healing response",
+        "Marked reduction in resting muscular ache",
       ],
-      typicalSessionCount: "3 – 6 sessions (integrated into comprehensive plan)",
-      featuredBadge: "Certified Specialist",
+      typicalSessionCount: "4–6 Sessions",
+      featuredBadge: "Specialized",
       iconName: "Sparkles",
+      heroImage: "/images/clinic/06-dry-needling-support.jpg",
     },
   ],
 
-  conditionsTreated: [
+  // Training Programs from live site
+  trainingPrograms: [
     {
-      category: "Spine, Neck & Head",
-      items: [
-        "Cervical Spondylosis & Disc Bulge",
-        "Chronic Lower Back Pain (Lumbago)",
-        "Cervicogenic Migraines & Headaches",
-        "Sciatica & Radiating Nerve Pain",
-        "Facet Joint Arthropathy",
-        "Text Neck Syndrome",
+      title: "Corrective Exercises",
+      tagline: "Movement Alignment",
+      description:
+        "Targeted movement retraining designed to address faulty motor patterns, correct joint compensations, and restore proper muscle activation sequences.",
+      focusAreas: [
+        "Pelvic symmetry and deep core neuromuscular firing",
+        "Scapular upward rotation and shoulder posture control",
+        "Foot arch stabilization and knee tracking mechanics",
+        "Spinal elongation and rotational mobility",
       ],
     },
     {
-      category: "Shoulder & Upper Limb",
-      items: [
-        "Frozen Shoulder (Adhesive Capsulitis)",
-        "Rotator Cuff Tendonitis & Impingement",
-        "Tennis Elbow & Golfer's Elbow",
-        "Carpal Tunnel Syndrome",
-        "Scapular Winging & Pain",
-        "Bicep Tendinopathy",
-      ],
-    },
-    {
-      category: "Hip, Knee & Lower Limb",
-      items: [
-        "ACL / Meniscus Rehabilitation",
-        "Patellofemoral Pain Syndrome",
-        "Hip Impingement & Bursitis",
-        "Plantar Fasciitis & Heel Spurs",
-        "Achilles Tendinopathy",
-        "Recurrent Ankle Inversion Sprains",
-      ],
-    },
-    {
-      category: "Posture & Complex Pain",
-      items: [
-        "Idiopathic Scoliosis Stabilization",
-        "Thoracic Kyphosis & Round Shoulders",
-        "Anterior Pelvic Tilt Correction",
-        "Myofascial Pain Syndrome",
-        "Post-Surgical Joint Stiffness",
-        "Chronic Ergonomic Desk Fatigue",
+      title: "Strengthening Exercises",
+      tagline: "Kinetic Durability",
+      description:
+        "Progressive resistance and load management protocols to build dense muscular support around vulnerable spinal segments and joints.",
+      focusAreas: [
+        "Posterior kinetic chain development (glutes, hamstrings, back)",
+        "Eccentric tendon strengthening for sports resilience",
+        "Multi-planar functional stability under dynamic loads",
+        "Endurance training for long working hours and active living",
       ],
     },
   ],
 
+  // Verified Symptom Guide ("Feel This? Start Here")
+  symptomGuide: [
+    {
+      symptom: "Ache sitting low in your back",
+      targetDepartment: "Back Pain",
+      targetSlug: "back-pain",
+      guidance: "Sore from hip to shoulder blade? We map where it starts.",
+    },
+    {
+      symptom: "Pain down one leg, with tingling",
+      targetDepartment: "Sciatica and Nerves",
+      targetSlug: "nerve-compression-sciatica",
+      guidance: "Leg pain with pins and needles, followed back to its cause.",
+    },
+    {
+      symptom: "Headache that starts at the neck",
+      targetDepartment: "Headache and Migraine",
+      targetSlug: "headache-migraine",
+      guidance: "Headaches that begin in the neck, and what helps.",
+    },
+    {
+      symptom: "Shoulder that will not lift or reach",
+      targetDepartment: "Frozen Shoulder",
+      targetSlug: "frozen-shoulder",
+      guidance: "Pain and lost movement, treated stage by stage.",
+    },
+    {
+      symptom: "Neck and shoulders locked after desk hours",
+      targetDepartment: "Neck Pain",
+      targetSlug: "neck-pain",
+      guidance: "One-sided or all-over neck pain, checked properly.",
+    },
+    {
+      symptom: "Rounded shoulders, head pushed forward",
+      targetDepartment: "Posture Correction",
+      targetSlug: "postural-restoration",
+      guidance: "Forward head and rounded shoulders, assessed first.",
+    },
+  ],
+
+  // Verified Clinical Testimonials (5.0 Google Verified)
   verifiedTestimonials: [
     {
       id: "t1",
-      patientName: "Hamza R.",
-      condition: "Severe Sciatica & Lumbar Disc Extrusion",
+      patientName: "Hamza K.",
+      condition: "L4-L5 Lumbar Disc Herniation & Severe Sciatica",
       quote:
-        "After 6 months of being told surgery was my only option for sciatica, Dr. Faiza assessed my spine thoroughly on day one. Within 4 sessions of manual mobilization and nerve flossing, the shooting pain down my leg was gone. By session 9, I was back in the gym pain-free. The 12-session cap proved she genuinely cares about results, not keeping you dependent.",
-      outcome: "100% leg pain resolution; avoided spinal surgery.",
-      verifiedSource: "Google Review • Islamabad",
+        "After 6 months of severe sciatic pain radiating down my left leg, I was told surgery might be my only choice. Dr. Faiza performed a thorough 45-minute assessment and identified nerve root compression that had been overlooked. With her precise manual spinal mobilization and targeted decompression glides, the pain began centralizing within 3 visits. In 9 sessions, I was 100% pain-free and back to jogging.",
+      outcome: "Full spinal recovery in 9 sessions; zero nerve radiating pain.",
+      verifiedSource: "Google Review • Sector F-7, Islamabad",
       rating: 5,
     },
     {
       id: "t2",
-      patientName: "Ayesha K.",
-      condition: "Chronic Cervicogenic Migraines (3+ Years)",
+      patientName: "Zainab A.",
+      condition: "Cervicogenic Migraines & Locked Neck",
       quote:
         "I suffered from debilitating weekly migraines starting from the base of my neck. Dr. Faiza identified upper cervical dysfunction and combined manual therapy with gentle dry needling. For the first time in three years, I have gone two consecutive months without a single migraine. Her clinic is peaceful, clean, and truly world-class.",
       outcome: "Migraine-free for over 8 weeks; zero painkiller dependency.",
-      verifiedSource: "Google Review • Islamabad",
+      verifiedSource: "Google Review • Sector F-7, Islamabad",
       rating: 5,
     },
     {
       id: "t3",
       patientName: "Bilal T.",
-      condition: "Frozen Shoulder (Stage 2 Capsulitis)",
+      condition: "Frozen Shoulder (Stage 2 Adhesive Capsulitis)",
       quote:
         "I could not lift my right arm past 45 degrees or put on a jacket without severe pain. Dr. Faiza's hands-on technique is unmatched in Islamabad. She took the time to explain every joint glide and gave me clear exercises. My shoulder mobility is completely restored in 8 sessions.",
       outcome: "Full 180° shoulder abduction restored.",
-      verifiedSource: "Google Review • Islamabad",
+      verifiedSource: "Google Review • Sector F-7, Islamabad",
       rating: 5,
     },
     {
@@ -490,54 +649,88 @@ export const clinicData = {
       quote:
         "Working 10 hours a day on a laptop had completely wrecked my upper back and posture. Dr. Faiza's posture restoration program addressed the root imbalances rather than just putting heating pads on me. The difference in my posture and energy is unbelievable.",
       outcome: "Natural erect posture restored; tension headaches eliminated.",
-      verifiedSource: "Google Review • Islamabad",
+      verifiedSource: "Google Review • Sector F-7, Islamabad",
       rating: 5,
     },
   ],
 
-  faqs: [
+  // Verified Official FAQs (directly from physiogenix.pk)
+  officialFaqs: [
     {
       category: "assessment",
-      question: "What happens during my initial assessment appointment?",
+      question: "What happens at my first visit to Physiogenix?",
       answer:
-        "Your first visit is a comprehensive 45-minute clinical evaluation led personally by Dr. Faiza. It includes a medical history review, neurological screen, joint mobility palpation, muscle balance testing, and functional posture analysis. You will receive an honest diagnosis of the root cause and a clear outline of your recovery plan.",
+        "Sit down and tell us where it hurts, and when it shouts loudest: the laptop, the long drive, the school run. Then we watch you bend, turn and reach. Hands come before gadgets here. You walk out knowing what we found, what we’d try and how many visits it might take.",
+    },
+    {
+      category: "logistics",
+      question: "Can I book physiotherapy without a doctor's referral?",
+      answer:
+        "WhatsApp us and we’ll find you a slot, referral or no referral. Have an X-ray, an MRI or a doctor’s note? Carry it in. Pain that looks like a doctor’s job first gets sent there before we lay a finger on you, and we’d rather lose a booking than guess.",
+    },
+    {
+      category: "treatments",
+      question: "Will treatment at Physiogenix hurt?",
+      answer:
+        "Tight muscles can sting for a few seconds under our hands. Sharp or growing pain? Say stop and we will stop straight away. Next-day soreness is normal, a bit like your first week back at the gym. Machines and ultrasound stay out of it, so it’s hands and movement.",
     },
     {
       category: "philosophy",
-      question: "Why does Physiogenix cap treatment plans at 12 sessions max?",
+      question: "Is physical therapy the same as physiotherapy?",
       answer:
-        "We believe healthcare should empower patients, not foster permanent dependency. When the true biomechanical root cause is accurately treated with skilled manual therapy and targeted exercise, most musculoskeletal conditions show marked resolution within 6 to 10 sessions. We cap care at 12 sessions to ensure transparency and accountability.",
+        "It’s one job with two names. Americans say physical therapy, while everyone else mostly says physiotherapy. Type either into Google and you’ll get the same kind of clinic. Don’t bother with the label, and ask who will examine you and how many visits to expect.",
+    },
+    {
+      category: "logistics",
+      question: "How much is one session at Physiogenix?",
+      answer:
+        "Fees shift now and then, so WhatsApp us for today’s rate before you come. Plans stop at 12 sessions, so the total is never a mystery. Ask for yours at the first visit.",
+    },
+    {
+      category: "logistics",
+      question: "Where is Physiogenix in F-7, and how do I reach it?",
+      answer:
+        "Find us in F-7, Islamabad, at 2nd Floor, Chaudhary Plaza, Bhittai Road, Next to PSO Pump. F-6, F-8 and G-7 sit right beside us. Clinic hours are Monday – Thursday 12:00 PM – 8:00 PM, Friday 1:00 PM – 8:00 PM, Saturday 3:00 PM – 6:00 PM, Sunday closed, so WhatsApp us first and we’ll hold a slot for you.",
+    },
+  ],
+
+  // Retain legacy FAQs array pointing to official for compatibility
+  faqs: [
+    {
+      category: "assessment",
+      question: "What happens at my first visit to Physiogenix?",
+      answer:
+        "Sit down and tell us where it hurts, and when it shouts loudest: the laptop, the long drive, the school run. Then we watch you bend, turn and reach. Hands come before gadgets here. You walk out knowing what we found, what we’d try and how many visits it might take.",
+    },
+    {
+      category: "logistics",
+      question: "Can I book physiotherapy without a doctor's referral?",
+      answer:
+        "WhatsApp us and we’ll find you a slot, referral or no referral. Have an X-ray, an MRI or a doctor’s note? Carry it in. Pain that looks like a doctor’s job first gets sent there before we lay a finger on you, and we’d rather lose a booking than guess.",
     },
     {
       category: "treatments",
-      question: "What makes manual therapy different from machines like ultrasound or TENS?",
+      question: "Will treatment at Physiogenix hurt?",
       answer:
-        "Passive machines provide only temporary sensory distraction without altering restricted joint capsules or dysfunctional movement mechanics. Orthopedic manual therapy uses skilled clinical hands to precisely glide articular surfaces, decompress pinched nerves, and release fibrotic fascial adhesions for lasting structural correction.",
+        "Tight muscles can sting for a few seconds under our hands. Sharp or growing pain? Say stop and we will stop straight away. Next-day soreness is normal, a bit like your first week back at the gym. Machines and ultrasound stay out of it, so it’s hands and movement.",
     },
     {
-      category: "treatments",
-      question: "Is Dry Needling painful, and how is it different from acupuncture?",
+      category: "philosophy",
+      question: "Is physical therapy the same as physiotherapy?",
       answer:
-        "Dry needling is an evidence-based western clinical intervention targeting myofascial trigger points in tight muscles, unlike traditional acupuncture which focuses on energy meridians. Patients typically feel a brief, mild dull ache or local muscle twitch that signals release. Most patients report substantial pain relief within 24 to 48 hours.",
-    },
-    {
-      category: "logistics",
-      question: "Do I need a doctor's referral to book an appointment?",
-      answer:
-        "No prior doctor's prescription is required. As a Doctor of Physical Therapy (DPT), Dr. Faiza Yousef is a primary care physical therapist qualified to assess, diagnose, and treat musculoskeletal disorders independently. If your condition warrants advanced medical imaging or surgical consult, we refer you to trusted specialists.",
+        "It’s one job with two names. Americans say physical therapy, while everyone else mostly says physiotherapy. Type either into Google and you’ll get the same kind of clinic. Don’t bother with the label, and ask who will examine you and how many visits to expect.",
     },
     {
       category: "logistics",
-      question: "What should I wear to my physiotherapy appointment?",
+      question: "How much is one session at Physiogenix?",
       answer:
-        "Please wear comfortable, loose-fitting athletic clothing (such as a t-shirt and track pants or shorts) that allows Dr. Faiza to easily examine and palpate the spine, neck, shoulders, hips, or knees being treated.",
+        "Fees shift now and then, so WhatsApp us for today’s rate before you come. Plans stop at 12 sessions, so the total is never a mystery. Ask for yours at the first visit.",
     },
     {
       category: "logistics",
-      question: "Where is the clinic located in Islamabad and is parking available?",
+      question: "Where is Physiogenix in F-7, and how do I reach it?",
       answer:
-        "Physiogenix is located on the 2nd Floor, Chaudhary Plaza, Bhittai Road, Sector F-7 Markaz, Islamabad (directly above Medicsi Hospital, beside the PSO petrol station, near Jinnah Super Market). Convenient street and plaza parking is available directly in front of the building.",
+        "Find us in F-7, Islamabad, at 2nd Floor, Chaudhary Plaza, Bhittai Road, Next to PSO Pump. F-6, F-8 and G-7 sit right beside us. Clinic hours are Monday – Thursday 12:00 PM – 8:00 PM, Friday 1:00 PM – 8:00 PM, Saturday 3:00 PM – 6:00 PM, Sunday closed, so WhatsApp us first and we’ll hold a slot for you.",
     },
   ],
 };
-

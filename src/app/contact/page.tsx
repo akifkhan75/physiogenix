@@ -115,14 +115,22 @@ export default function ContactPage() {
                 {/* Phone */}
                 <div className="pt-4 border-t border-[#E8E7E0] space-y-1 text-xs">
                   <span className="text-[10px] uppercase tracking-editorial-widest text-[#7F8B7E] font-medium block">
-                    Direct Clinical Line:
+                    Direct Clinical Lines:
                   </span>
-                  <a
-                    href={`tel:${clinicData.contact.primaryPhone.replace(/\s+/g, "")}`}
-                    className="font-medium text-[#193B2C] hover:underline block"
-                  >
-                    {clinicData.contact.primaryPhone}
-                  </a>
+                  <div className="font-mono flex flex-col gap-1">
+                    <a
+                      href={`tel:${clinicData.contact.primaryPhone.replace(/\s+/g, "")}`}
+                      className="font-medium text-[#193B2C] hover:underline"
+                    >
+                      {clinicData.contact.primaryPhone} (Primary)
+                    </a>
+                    <a
+                      href={`tel:${clinicData.contact.secondaryPhone.replace(/\s+/g, "")}`}
+                      className="font-medium text-[#193B2C] hover:underline"
+                    >
+                      {clinicData.contact.secondaryPhone} (Secondary)
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

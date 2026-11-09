@@ -49,10 +49,12 @@ export const ContactBookingSection: React.FC = () => {
               </a>
             </div>
 
-            <div className="pt-6 text-xs text-[#AAB7A5] font-light flex items-center justify-center gap-4">
-              <span>Mon–Fri: 12:00 PM – 8:00 PM</span>
+            <div className="pt-6 text-xs text-[#AAB7A5] font-light flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+              <span>Mon–Thu: 12:00 PM – 8:00 PM</span>
               <span>•</span>
-              <span>Sat: 3:00 PM – 8:00 PM</span>
+              <span>Fri: 1:00 PM – 8:00 PM</span>
+              <span>•</span>
+              <span>Sat: 3:00 PM – 6:00 PM</span>
               <span>•</span>
               <span>F-7 Markaz Islamabad</span>
             </div>

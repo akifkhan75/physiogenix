@@ -56,6 +56,8 @@ export const EditorialHero: React.FC = () => {
             <div className="hidden sm:flex items-center gap-4 text-[#7F8B7E]">
               <span>STMU Alumna</span>
               <span className="text-[#AAB7A5]">•</span>
+              <span className="text-[#193B2C] font-semibold">5.0 ★ Google (65 Reviews)</span>
+              <span className="text-[#AAB7A5]">•</span>
               <span className="text-[#193B2C] font-semibold">Ethical 12-Session Cap</span>
             </div>
           </div>
@@ -146,7 +148,7 @@ export const EditorialHero: React.FC = () => {
               >
                 {/* Authentic Portrait Image */}
                 <Image
-                  src="/dr-faiza/dr-faiza-portrait-600.jpg"
+                  src="/dr-faiza/physiogenix-photo-dr-faiza.webp"
                   alt="Dr. Faiza Yousef - Lead Physical Therapist at Physiogenix Islamabad"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 480px"
